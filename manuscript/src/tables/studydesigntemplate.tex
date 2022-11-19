@@ -1,0 +1,26 @@
+\renewcommand\cellset{\renewcommand\arraystretch{0.5}%
+    \setlength\extrarowheight{0pt}}
+\begin{table}[bt]
+    \scriptsize
+    \begin{fullwidth}
+        \begin{threeparttable}
+            \begin{spacing}{0.8}\centering
+                \begin{tabularx}{1.3\textwidth}{p{.2\linewidth} p{.1\linewidth} p{.09\linewidth} p{.15\linewidth} p{.09\linewidth} p{.14\linewidth} p{.08\linewidth}}
+                    \toprule
+                    Question   & Hypothesis     & Sampling plan     & Analysis plan   & Rationale for deciding the sensitivity of the test & Interpretation given different outcomes & Theory that could be shown wrong by the outcome \\
+                    \midrule
+                    Is severity of cerebral small disease, quantified by the volume supratentorial white matter hyperintensities of presumed vascular origin (WMH), associated with time spent in high-occupancy brain states, defined by resting-state functional MRI & 
+                    Higher WMH volume is associated with lower average occupancy of the two highest-occupancy brain states & 
+                    Available subjects with clinical and imaging data from the HCHS \citep{Jagodzinski2020-lx} & 
+                    Standardized preprocessing of structural and functional MRI data • automatic quantification of WMH • co-activation pattern analysis • multivariable generalised regression analyses &
+                    Tradition &
+                    \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between cSVD and fractional occupancy;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis}    &
+                    Functional brain dynamics are not related to subcortical ischemic vascular disease.    \\
+                    \bottomrule
+                \end{tabularx}
+            \end{spacing}
+            \bigskip
+            \caption{Study Design Template}
+        \end{threeparttable}
+    \end{fullwidth}
+\end{table}
