@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  19 NOV 2022 13:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  19 NOV 2022 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1660,11 +1660,6 @@ LaTeX Font Warning: Font shape `U/ifsym/b/n' undefined
 
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
 (Font)              scaled to size 5.0pt on input line 1.
-
-Overfull \hbox (21.91765pt too wide) in paragraph at lines 1--1
-\T1/opensans-TLF/m/n/8 hamburg/HCHS_brain_states_RR[][].  
- []
-
 [1{/home/eckhard/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -1702,7 +1697,7 @@ Overfull \hbox (21.60303pt too wide) in paragraph at lines 39--43
  []
 
 [5] [6]
-<./../analysis/code/R/pipeline_files/figure-html/power-1.png, id=177, 505.89pt x 361.35pt>
+<./../analysis/code/R/pipeline_files/figure-html/power-1.png, id=178, 505.89pt x 361.35pt>
 File: ./../analysis/code/R/pipeline_files/figure-html/power-1.png Graphic file (type png)
 <use ./../analysis/code/R/pipeline_files/figure-html/power-1.png>
 Package pdftex.def Info: ./../analysis/code/R/pipeline_files/figure-html/power-1.png  used on input line 75.
@@ -1730,14 +1725,14 @@ Overfull \hbox (5.17181pt too wide) in alignment at lines 45--45
 Overfull \vbox (15.74547pt too high) has occurred while \output is active []
 
  [8 <./../analysis/code/R/pipeline_files/figure-html/power-1.png (PNG copy)>]) (./src/main/results.tex [9]
-<./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png, id=278, 433.62pt x 361.35pt>
+<./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png, id=279, 433.62pt x 361.35pt>
 File: ./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png Graphic file (type png)
 <use ./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png>
 Package pdftex.def Info: ./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png  used on input line 9.
 (pdftex.def)             Requested size: 406.58981pt x 338.84198pt.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 10.
-<./../analysis/code/R/pipeline_files/figure-html/regWMHvsFOplot-1.png, id=281, 867.24pt x 578.16pt>
+<./../analysis/code/R/pipeline_files/figure-html/regWMHvsFOplot-1.png, id=282, 867.24pt x 578.16pt>
 File: ./../analysis/code/R/pipeline_files/figure-html/regWMHvsFOplot-1.png Graphic file (type png)
 <use ./../analysis/code/R/pipeline_files/figure-html/regWMHvsFOplot-1.png>
 Package pdftex.def Info: ./../analysis/code/R/pipeline_files/figure-html/regWMHvsFOplot-1.png  used on input line 17.
@@ -1785,10 +1780,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  102i,22n,131p,2702b,2304s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} </home/eckhard/.TinyTeX/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Bold.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Italic.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on build/main.pdf (17 pages, 7979061 bytes).
+Output written on build/main.pdf (17 pages, 7978985 bytes).
 PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 327 compressed objects within 4 object streams
+ 398 PDF objects out of 1000 (max. 8388607)
+ 328 compressed objects within 4 object streams
  86 named destinations out of 1000 (max. 500000)
  21636 words of extra memory for PDF output out of 24883 (max. 10000000)
 
