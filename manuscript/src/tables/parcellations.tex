@@ -1,0 +1,55 @@
+\renewcommand\cellset{\renewcommand\arraystretch{0.5}%
+    \setlength\extrarowheight{0pt}}
+\begin{table}[bt]
+    \scriptsize
+    \begin{threeparttable}
+        \begin{subtable}[t]{.525\textwidth}
+            \label{tab:parcellations}
+            % Use "S" column identifier to align on decimal point 
+            \begin{tabularx}{\textwidth}{l l l}
+                \toprule
+                \textbf{Name of the atlas}  & \textbf{\#parcels}                                  & \textbf{Reference}          \\
+                \midrule
+                Desikan--Killiany           & \num{86}                                            & \cite{desikan2006automated} \\
+                AAL                         & \num{116}                                           & \cite{tzourio2002automated} \\
+                Harvard--Oxford             & \num{112}                                           & \cite{makris2006decreased}  \\
+                glasser360                  & \num{360}                                           & \cite{Glasser2016-ia}       \\
+                gordon333                   & \num{333}                                           & \cite{Gordon2016-wy}        \\
+                power264                    & \num{264}                                           & \cite{Power2011-xf}         \\
+                schaefer\{N\}               & \makecell[lt]{\num{100} \\ \num{200}\\ \num{400}}   & \cite{Schaefer2018-bo}      \\
+                \bottomrule
+            \end{tabularx}
+            \begin{tablenotes}
+                \item{AAL:} Automatic Anatomical Labelling
+            \end{tablenotes}
+            \caption{Parcellations}
+        \end{subtable}
+        \qquad
+        \begin{subtable}[t]{.425\textwidth}
+            \label{tab:parcellations}
+            % Use "S" column identifier to align on decimal point 
+            \begin{tabularx}{\textwidth}{l l l}
+                \toprule
+                \textbf{Design}        & \textbf{Reference}                 \\
+                \midrule
+                24p                    & \cite{friston1996movement}         \\
+                24p + GSR              & \cite{macey2004method}             \\
+                36p                    & \cite{satterthwaite2013improved}   \\
+                26p + spike regression & \cite{cox1996afni}                 \\
+                36p + despiking        & \cite{satterthwaite2013improved}   \\
+                36p + scrubbing        & \cite{power2014methods}            \\
+                aCompCor               & \cite{muschelli2014reduction}      \\
+                tCompCor               & \cite{behzadi2007component}        \\
+                AROMA                  & \cite{pruim2015ica}                \\
+                \bottomrule
+            \end{tabularx}
+            \begin{tablenotes}
+                \item GSR: Global signal regression, AROMA: bla
+            \end{tablenotes}
+            \caption{Confound regression strategies, adapted from \citep{Ciric2017-cl}}
+        \end{subtable}
+        \makeatletter\def\TPT@hsize{}\makeatletter
+    \end{threeparttable}
+    \caption{Multiverse analysis, implemented using xcpEngine \citep{ciric2018mitigating}}
+    \label{tab:multiverse}
+\end{table}

@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LaPreprint: PREPRINT TEMPLATE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PREAMBLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Declare document class
+\documentclass[12pt,biorxiv,lineno,doublespacing]{lapreprint}
+
+% Import packages
+\usepackage[version=4]{mhchem} % For chemical notation
+\usepackage{siunitx}    % For SI units
+\usepackage{pdflscape}  % For putting pages in landscape mode
+\usepackage{rotating}   % For rotating specific elements
+\usepackage{textgreek}  % Greek symbols
+\usepackage{gensymb}    % Symbols
+\usepackage[misc]{ifsym} % For the \Letter symbol
+\usepackage{orcidlink}  % For the \orcidlink
+\usepackage{listings}   % For inserting code chunks
+\usepackage{colortbl}   % For Knitr table colouring
+\usepackage{tabularx}   % For making Knitr tables compatible
+\usepackage{longtable}  % For multi-page tables
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{snotez}     % For sidenote environments. enotez for endnotes
+\usepackage{csquotes}   % For language-based quote rules (helps BiBLaTeX)
+
+\usepackage{fontenc}
+\usepackage{cleveref}
+\usepackage{makecell}
+
+% Make declarations
+\DeclareSIUnit\Molar{M}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[			% use biblatex for bibliography
+	backend=biber,      % use biber or bibtex backend
+    style=authoryear,   % choose style
+	natbib=true,		% allow natbib commands
+	hyperref=true,	    % activate hyperref support
+	alldates=year,      % only show year (not month)
+]{biblatex}
+
+% Update to your bibliography file
+\addbibresource{src/references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Paper title
+\title{Functional MRI brain state occupancy in the presence of cerebral small vessel disease -- pre-registration for a multiverse replication analysis of the Hamburg City Health Study}
+
+% Authors - you can use \orcidlink{} and \authfn{} - see contribution note
+\author[ \orcidlink{0000-0002-5729-2935} 1 \Letter]{Eckhard Schlemm, MBBS PhD}
+%\author[ \orcidlink{0000-0003-2434-1822} 1 \authfn{1}]{Bastian Cheng, MD}
+
+% Affiliations
+\affil[1]{Department of Neurology, University Medical Center Hamburg-Eppendorf}
+
+% Correspondence
+\correspondence{e.schlemm@uke.de}{}
+
+% Contribution note
+%\contribution[\authfn{1}]{These authors contributed equally.}
+
+% Present address of corresponding author
+\presentaddress[]{\\Dr.\, Dr.\, Eckhard Schlemm, Klinik und Poliklinik f\"ur Neurologie, Universit\"atsklinikum Hamburg-Eppendorf, Martinistr. 52,\\ D-20251 Hamburg}
+
+% Data availability statement, funding and competing interests.
+\data[]{Preprocessed data will be available e.g. on \href{https://github.com/csi-hamburg/HCHS_brain_states_RR}{https://github.com/csi-hamburg/HCHS\_brain\_states\_RR}.}
+\funding[]{Deutsche Forschungsgemeinschaft (DFG) -- 178316478 -- C2}
+\compint[]{The author declares no competing interests.}
+
+
+% Surname of the lead author(s) for the running footer
+\leadauthor{Eckhard Schlemm}
+\shorttitle{Brain states in cSVD - a functional MRI replication substudy of the Hamburg City Health Study}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+
+\input{src/main/abstract}
+\input{src/main/introduction}
+\input{src/main/methods}
+\input{src/main/results}
+\input{src/main/formal}
+\printbibliography
+
+% DON'T EDIT. If "endfloat" option is enabled all floats appear before appendices
+\if@endfloat\clearpage\processdelayedfloats\clearpage\fi 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUPPLEMENTARY MATERIAL / APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sadly, we can't use floats in the appendix boxes. So they don't "float", but use \captionof{figure}{...} and \captionof{table}{...} to get them properly caption.
+% \begin{appendix}
+
+% \begin{appendixbox}\label{app:ttt}
+%     \input{src/supplementary/appendices.tex}
+% \end{appendixbox}
+
+% \begin{appendixbox}
+%     \input{src/supplementary/resources.tex}
+% \end{appendixbox}
+
+% \end{appendix}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE END
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

@@ -1,0 +1,1 @@
+White matter hyperintensity volumes obtained using the BIANCA/LOCATE approach with anatomical priors described in [Equalization of Brain State Occupancy Accompanies Cognitive Impairment in Cerebral Small Vessel Disease](https://www.biologicalpsychiatryjournal.com/article/S0006-3223(22)01153-2/fulltext)
