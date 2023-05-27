@@ -1,17 +1,17 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'build/main.blg'
-[64] biber:340> INFO - === Sa Nov 19, 2022, 15:56:40
-[76] Biber.pm:418> INFO - Reading 'build/main.bcf'
-[134] Biber.pm:978> INFO - Found 50 citekeys in bib section 0
-[145] Biber.pm:4401> INFO - Processing section 0
-[154] Biber.pm:4592> INFO - Looking for bibtex file 'src/references.bib' for section 0
-[162] bibtex.pm:1713> INFO - LaTeX decoding ...
-[243] bibtex.pm:1518> INFO - Found BibTeX data source 'src/references.bib'
-[1019] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1019] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1020] Biber.pm:4221> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[1020] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[1088] bbl.pm:654> INFO - Writing 'build/main.bbl' with encoding 'UTF-8'
-[1247] bbl.pm:757> INFO - Output to build/main.bbl
-[1247] Biber.pm:130> WARN - BibTeX subsystem: /tmp/biber_tmp_IDel/33e59b5ca9ec342068223d604c3f8d55_4104187.utf8, line 1373, warning: possible runaway string started at line 1352
-[1247] Biber.pm:132> INFO - WARNINGS: 1
+[67] biber:340> INFO - === Sa Mai 27, 2023, 14:26:07
+[80] Biber.pm:418> INFO - Reading 'build/main.bcf'
+[141] Biber.pm:978> INFO - Found 54 citekeys in bib section 0
+[152] Biber.pm:4401> INFO - Processing section 0
+[161] Biber.pm:4592> INFO - Looking for bibtex file 'src/references.bib' for section 0
+[169] bibtex.pm:1713> INFO - LaTeX decoding ...
+[256] bibtex.pm:1518> INFO - Found BibTeX data source 'src/references.bib'
+[1175] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1175] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1175] Biber.pm:4221> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[1176] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[1250] bbl.pm:654> INFO - Writing 'build/main.bbl' with encoding 'UTF-8'
+[1418] bbl.pm:757> INFO - Output to build/main.bbl
+[1418] Biber.pm:130> WARN - BibTeX subsystem: /tmp/biber_tmp_1OmH/33e59b5ca9ec342068223d604c3f8d55_2249725.utf8, line 1419, warning: possible runaway string started at line 1398
+[1418] Biber.pm:132> INFO - WARNINGS: 1

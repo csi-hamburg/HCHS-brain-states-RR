@@ -4,7 +4,7 @@
     \scriptsize
     \begin{threeparttable}
         \begin{subtable}[t]{.525\textwidth}
-            \label{tab:parcellations}
+            \label{tab:parcellations2}
             % Use "S" column identifier to align on decimal point 
             \begin{tabularx}{\textwidth}{l l l}
                 \toprule
@@ -34,17 +34,17 @@
                 \midrule
                 24p                    & \cite{friston1996movement}         \\
                 24p + GSR              & \cite{macey2004method}             \\
-                36p                    & \cite{satterthwaite2013improved}   \\
-                26p + spike regression & \cite{cox1996afni}                 \\
+                36p              & \cite{satterthwaite2013improved}   \\
+                36p + spike regression & \cite{cox1996afni}                 \\
                 36p + despiking        & \cite{satterthwaite2013improved}   \\
-                36p + scrubbing        & \cite{power2014methods}            \\
+                36p + scrubbing  & \cite{power2014methods}            \\
                 aCompCor               & \cite{muschelli2014reduction}      \\
                 tCompCor               & \cite{behzadi2007component}        \\
                 AROMA                  & \cite{pruim2015ica}                \\
                 \bottomrule
             \end{tabularx}
             \begin{tablenotes}
-                \item GSR: Global signal regression, AROMA: bla
+                \item GSR: Global signal regression, AROMA: Automatic Removal of Motion Artifacts
             \end{tablenotes}
             \caption{Confound regression strategies, adapted from \citep{Ciric2017-cl}}
         \end{subtable}

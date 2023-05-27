@@ -8,20 +8,20 @@ The ethical review board of the Landesärztekammer Hamburg (State of Hamburg Cha
 \subsection{Demographic and clinical characterization}
 From the study database we will extract participants’ age at the time of inclusion in years, their self-reported gender and the number of years spent in education.
 During the visit at the study center, participants undergo cognitive assessment using standardized tests.
-We will extract from the database their performance scores in the Trail Making Test part B, measured in seconds, as an operationalization of executive function \citep{Tombaugh2004-dp}.
+We will extract from the database their performance scores in the Trail Making Test part B, measured in seconds, as an operationalization of executive function and psychomotor processing speed \citep{Tombaugh2004-dp,arbuthnott2000trail}.
 
 \subsection{MRI acquisition and preprocessing}
 The magnetic resonance imaging protocol for the HCHS includes structural and resting-state functional sequences.
 The acquisition parameters on a \qty{3}{\tesla} Siemens Skyra MRI scanner (Siemens, Erlangen, Germany) have been reported before \citep{Petersen2020-cx,Frey2021-sv} and are given as follows:
 
-For $T_1$-weighted anatomical images, a 3D rapid acquisition gradient-echo sequence (MPRAGE) was used with the following sequence parameters: repettion time $\text{TR} = \qty{2500}{\ms}$, echo time $\text{TE} = \qty{2.12}{\ms}$, 256 axial slices, slice thickness $\text{ST} = \qty{0.94}{\mm}$, and in-plane resolution  $\text{IPR} = \qtyproduct[product-units = bracket-power]{0.83 x 0.83}{\mm}$.
+For $T_1$-weighted anatomical images, a 3D rapid acquisition gradient-echo sequence (MPRAGE) was used with the following sequence parameters: repetition time $\text{TR} = \qty{2500}{\ms}$, echo time $\text{TE} = \qty{2.12}{\ms}$, 256 axial slices, slice thickness $\text{ST} = \qty{0.94}{\mm}$, and in-plane resolution  $\text{IPR} = \qtyproduct[product-units = bracket-power]{0.83 x 0.83}{\mm}$.
 
 $T_2$-weighted fluid attenuated inversion recovery (FLAIR) images were acquired with the following sequence parameters: $\text{TR} = \qty{4700}{\ms}$, $\text{TE} = \qty{392}{\ms}$, \num{192} axial slices, $\text{ST} = \qty{0.9}{\mm}$, $\text{IPR} = \qtyproduct[product-units = bracket-power]{0.75 x 0.75}{\mm}$.
 
 \num{125} resting state functional MRI volumes were acquired ($\text{TR} = \qty{2500}{\ms}$; $\text{TE} = \qty{25}{\ms}$; $\text{flip angle} = \ang[]{90}$; slices = \num{49}; $\text{ST} = \qty{3}{\mm}$; $\text{slice gap} = \qty{0}{\mm}$; $\text{IPR} = \qtyproduct[product-units = bracket-power]{2.66 x 2.66}{\mm}$).
 Subjects were asked to keep their eyes open and to think of nothing.
 
-We will verify the presence and voxel-dimensions of expected MRI data for each participant and exclude those for whom at least one of $T_1$-weighted, FLAIR and resting-state MRI is missing.
+We will verify the presence and voxel-dimensions of expected MRI data for each participant and exclude those for whom at least one of $T_1$-weighted, FLAIR and resting-state MRI is missing. We will also exclude participants with a neuroradiologically confirmed space-occupying intra-axial lesion.
 To ensure reproducibility, no visual quality assessment on raw images will be performed.
 
 For the remaining participants, structural and resting-state functional MRI data will be preprocessed using FreeSurfer v6.0 (\url{https://surfer.nmr.mgh.harvard.edu/}), and fmriPrep v20.2.6 \citep{Esteban2019-sx}, using default parameters. Participants will be excluded if automated processing using at least one of these packages fails.
@@ -45,7 +45,7 @@ The two states with the highest average occupancy will be identified as the basi
 \subsection{Statistical analysis}
 For demographic (age, gender, years of education) and clinical (TMT-B) variables the number of missing records will be reported.
 For non-missing values, we will provide descriptive summary statistics using median and interquartile range.
-The proportion of men and women in the sample will be reported.
+The proportion of men and women in the sample will be reported. Regression modelling will be carried out as a complete-case analysis.
 
 As a first outcome-neutral quality check of the implementation of the MRI processing pipeline, brain state estimation and co-activation pattern analysis, we will compare fractional occupancies between brain states.
 We expect that the average fractional occupancy in two high-occupancy states is higher than the average fractional occupancy in the other three states.
@@ -66,7 +66,8 @@ The strength of the association will be quantified as a multiplicative factor pe
 Significance testing of the null hypothesis of no association will be conducted at the conventional significance level of 0.05.
 Estimation and testing will be carried out using the glm function included in the 'stats' package from R v4.2.1.
 
-Sample size calculation is based on the data presented in \citep{Schlemm2022-he}, where an odds ratio of \qty{0.95} was reported as the primary effect size of interest.
+Sample size calculation is based on an effect size on the odds ratio scale of 0.95, corresponding to an absolute difference in the probability of occupying a DMN-related brain state between the first and third WMH-load quartile of 1.3 percentage points, and between the 5\% and 95\% percentile of 3.1 percentage points. Approximating half the difference in fractional occupancy of DMN-related states between different task demands (rest vs n-back) in healthy subjects, which was estimated to lie between 6 and 7 percentage points \citep{Cornblath2020-fu}, this value represent a plausible choice for the smallest effect size of theoretical and practical interest. It also equals the effect size estimated based on the data presented in \citep{Schlemm2022-he}. 
+
 We used simple bootstrapping to create \num{10000} hypothetical datasets of size \num{200}, \num{400}, \num{600}, \num{800}, \num{900}, \num{910}, \ldots, \num{1100}, \num{1200}, \num{1400}, \num{1500}, \num{1600}.
 Each dataset was subjected to the estimation procedure described above.
 For each sample size, the proportion of datasets in which the primary null hypothesis of no association between fractional occupancy and WMH load could be rejected at $\alpha=0.05$ was computed and is recorded as a power curve in \Cref{fig:power}.
@@ -83,16 +84,18 @@ We anticipate a sample size of \num{1500}, which yields a power of \qty{93.9}{\p
 
 \subsection{Multiverse analysis}
 Both in \citep{Schlemm2022-he} and for our primary replication analysis we made certain analytical choices in the operationalisation of brain states and ischemic white matter disease, namely the use of the \textit{36p} confound regression strategy, the Schaefer-\num{400} parcellation and a BIANCA/LOCATE-based WMH segmentation algorithm.
-If the hypothesized association between WMH burden and time spent in high-occupancy states can be replicated using these primary analytical choices, its robustness with regard to other choices will be explored in a multiverse analysis \citep{Schlemm2022-he,Steegen2016-ze}.
-Specifically, we will estimate brain states from BOLD time series processed according to a variety of established confound regression strategies and aggregated over different cortical brain parcellations (\Cref{tab:multiverse}, \cite{ciric2018mitigating,Ciric2017-cl}). Extent of cSVD will additionally be quantified by the volume of deep and periventricular white matter hyperintensities.
+The robustness of the association between WMH burden and time spent in high-occupancy states with regard to other choices will be explored in a multiverse analysis \citep{Steegen2016-ze}. Specifically, in an exploratory analysis, we will estimate brain states from BOLD time series processed according to a variety of established confound regression strategies and aggregated over different cortical brain parcellations (\Cref{tab:multiverse}, \cite{ciric2018mitigating,Ciric2017-cl}). Extent of cSVD will additionally be quantified by the volume of deep and periventricular white matter hyperintensities.
 
 \input{src/tables/parcellations.tex}
 
 For each combination of analytical choice of confound regression strategy, parcellation and subdivision of white matter lesion load ($9\times9\times3=243$ scenarios in total) we will quantify the association between WMH load and average time spent in high-occupancy brain states using odds ratio and \qty{95}{\percent} confidence intervals as described above.
-No hypothesis testing and, therefore, no adjustment for multiple testing, will be carried out in these non-primary analyses.
 
-\section{Exploratory analysis}
+No hypothesis testing and will be carried out in these multiverse analyses. They rather serve to inform about the robustness of the outcome of the test of the primary hypothesis.
+Any substantial conclusions about the association between severity of cerebral small pathology and time spent in high-occupancy brain states, as stated in the Scientific Question in \Cref{tab:SDT}, will be drawn from the primary analysis using pre-specified methodological choices.
+
+\section{Further exploratory analysis}
 In previous work, two high-occupancy brain states were related to the default-mode network \citep{Cornblath2020-fu}.
 We will further explore this relation by computing, for each individual brain state, the cosine similarity of the positive and negative activations of the cluster’s centroid with a set of a-priori defined functional ‘communities’ or networks \citep{Schaefer2018-bo,Yeo2011-qg}.
 Results will be thus visualized as spider plots for the Schaefer, Gordon and Power atlasses.
 
+In further exploratory analyses we plan to describe the associations between brain state dynamics and other measures of cognitive ability, such as memory and language.

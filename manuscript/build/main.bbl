@@ -19,6 +19,44 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{arbuthnott2000trail}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=88fcfee8f73317e732dcdb2418180dbf}{%
+           family={Arbuthnott},
+           familyi={A\bibinitperiod},
+           given={Katherine},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fabd406201b3880160d0a8b91b57a7cf}{%
+           family={Frank},
+           familyi={F\bibinitperiod},
+           given={Janis},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{7fad743c19f07ef1651b9ed84b552f4d}
+      \strng{fullhash}{7fad743c19f07ef1651b9ed84b552f4d}
+      \strng{bibnamehash}{7fad743c19f07ef1651b9ed84b552f4d}
+      \strng{authorbibnamehash}{7fad743c19f07ef1651b9ed84b552f4d}
+      \strng{authornamehash}{7fad743c19f07ef1651b9ed84b552f4d}
+      \strng{authorfullhash}{7fad743c19f07ef1651b9ed84b552f4d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of clinical and experimental neuropsychology}
+      \field{number}{4}
+      \field{title}{Trail making test, part B as a measure of executive control: validation using a set-switching paradigm}
+      \field{volume}{22}
+      \field{year}{2000}
+      \field{pages}{518\bibrangedash 528}
+      \range{pages}{11}
+    \endentry
     \entry{behzadi2007component}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=0cabf5b9c4350a18f4e8756663151bd1}{%
@@ -2012,6 +2050,219 @@
       \field{pages}{169\bibrangedash 181}
       \range{pages}{13}
       \keyw{Brain MRI; Cancer; Cardiac MRI; Coronary heart disease; Dementia; Epidemiology; Hamburg; Health care; Health service research; Lifestyle; MRI imaging; Nutrition; Obesity; Ocular diseases; Oral health; Prevention; Prospective cohort study; Psychiatric and psychosomatic disorders; Resilience; Respiratory diseases; Risk factors; Sexual dysfunction; Stroke; Survivorship; Vascular diseases}
+    \endentry
+    \entry{laumann2015functional}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{ul=2}{%
+        {{un=0,uniquepart=base,hash=80b697a4d0ae93d6e6d8bbe07da385ca}{%
+           family={Laumann},
+           familyi={L\bibinitperiod},
+           given={Timothy\bibnamedelima O},
+           giveni={T\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e290e9da7fd9bee76e99d8b3c85b384d}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={Evan\bibnamedelima M},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=025d6408ef5c343ea744144a26964002}{%
+           family={Adeyemo},
+           familyi={A\bibinitperiod},
+           given={Babatunde},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=051aa0d7e63c1b058d6b82c08085721a}{%
+           family={Snyder},
+           familyi={S\bibinitperiod},
+           given={Abraham\bibnamedelima Z},
+           giveni={A\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d44f0347756bcedad17899ad15aa26a3}{%
+           family={Joo},
+           familyi={J\bibinitperiod},
+           given={Sung\bibnamedelima Jun},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3726777fcd17d62b1927addb66690bf7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Mei-Yen},
+           giveni={M\bibinithyphendelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc3d77fae9d783cdaaea5a5f8e44755f}{%
+           family={Gilmore},
+           familyi={G\bibinitperiod},
+           given={Adrian\bibnamedelima W},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=91569f2b4fef290deb86f6422fd6d011}{%
+           family={McDermott},
+           familyi={M\bibinitperiod},
+           given={Kathleen\bibnamedelima B},
+           giveni={K\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df1a74732f6f7ef64e76fb911e676c30}{%
+           family={Nelson},
+           familyi={N\bibinitperiod},
+           given={Steven\bibnamedelima M},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=48b85d18202ee413e3e48baf1427f284}{%
+           family={Dosenbach},
+           familyi={D\bibinitperiod},
+           given={Nico\bibnamedelima UF},
+           giveni={N\bibinitperiod\bibinitdelim U\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{ba652c7709e6a51463b7c22fa2b1b327}
+      \strng{fullhash}{0f50ec7978e359205a85e794d43b0604}
+      \strng{bibnamehash}{ba652c7709e6a51463b7c22fa2b1b327}
+      \strng{authorbibnamehash}{ba652c7709e6a51463b7c22fa2b1b327}
+      \strng{authornamehash}{ba652c7709e6a51463b7c22fa2b1b327}
+      \strng{authorfullhash}{0f50ec7978e359205a85e794d43b0604}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neuron}
+      \field{number}{3}
+      \field{title}{Functional system and areal organization of a highly sampled individual human brain}
+      \field{volume}{87}
+      \field{year}{2015}
+      \field{pages}{657\bibrangedash 670}
+      \range{pages}{14}
+    \endentry
+    \entry{laumann2021brain}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=80b697a4d0ae93d6e6d8bbe07da385ca}{%
+           family={Laumann},
+           familyi={L\bibinitperiod},
+           given={Timothy\bibnamedelima O},
+           giveni={T\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=051aa0d7e63c1b058d6b82c08085721a}{%
+           family={Snyder},
+           familyi={S\bibinitperiod},
+           given={Abraham\bibnamedelima Z},
+           giveni={A\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{5d77f3f5762aeb2cdb4876d54d7b2e92}
+      \strng{fullhash}{5d77f3f5762aeb2cdb4876d54d7b2e92}
+      \strng{bibnamehash}{5d77f3f5762aeb2cdb4876d54d7b2e92}
+      \strng{authorbibnamehash}{5d77f3f5762aeb2cdb4876d54d7b2e92}
+      \strng{authornamehash}{5d77f3f5762aeb2cdb4876d54d7b2e92}
+      \strng{authorfullhash}{5d77f3f5762aeb2cdb4876d54d7b2e92}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Current Opinion in Behavioral Sciences}
+      \field{title}{Brain activity is not only for thinking}
+      \field{volume}{40}
+      \field{year}{2021}
+      \field{pages}{130\bibrangedash 136}
+      \range{pages}{7}
+    \endentry
+    \entry{laumann2017stability}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{ul=2}{%
+        {{un=0,uniquepart=base,hash=80b697a4d0ae93d6e6d8bbe07da385ca}{%
+           family={Laumann},
+           familyi={L\bibinitperiod},
+           given={Timothy\bibnamedelima O},
+           giveni={T\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=051aa0d7e63c1b058d6b82c08085721a}{%
+           family={Snyder},
+           familyi={S\bibinitperiod},
+           given={Abraham\bibnamedelima Z},
+           giveni={A\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d12e54ff3abe2baa845e79c4af9a6dbe}{%
+           family={Mitra},
+           familyi={M\bibinitperiod},
+           given={Anish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e290e9da7fd9bee76e99d8b3c85b384d}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={Evan\bibnamedelima M},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b70920abc00cf5b413e3a4c89b3bd017}{%
+           family={Gratton},
+           familyi={G\bibinitperiod},
+           given={Caterina},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=025d6408ef5c343ea744144a26964002}{%
+           family={Adeyemo},
+           familyi={A\bibinitperiod},
+           given={Babatunde},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc3d77fae9d783cdaaea5a5f8e44755f}{%
+           family={Gilmore},
+           familyi={G\bibinitperiod},
+           given={Adrian\bibnamedelima W},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df1a74732f6f7ef64e76fb911e676c30}{%
+           family={Nelson},
+           familyi={N\bibinitperiod},
+           given={Steven\bibnamedelima M},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30005cd94e82a4fdb89fcd82f9c50c61}{%
+           family={Berg},
+           familyi={B\bibinitperiod},
+           given={Jeff\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=63766eb3eaac96b80fdad2a70d9c36c2}{%
+           family={Greene},
+           familyi={G\bibinitperiod},
+           given={Deanna\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{ad2b83cb6222d2fa0b27c18e56f16655}
+      \strng{fullhash}{226c0df8fa5b4bc7af6532233cf1a435}
+      \strng{bibnamehash}{ad2b83cb6222d2fa0b27c18e56f16655}
+      \strng{authorbibnamehash}{ad2b83cb6222d2fa0b27c18e56f16655}
+      \strng{authornamehash}{ad2b83cb6222d2fa0b27c18e56f16655}
+      \strng{authorfullhash}{226c0df8fa5b4bc7af6532233cf1a435}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cerebral cortex}
+      \field{number}{10}
+      \field{title}{On the stability of BOLD fMRI correlations}
+      \field{volume}{27}
+      \field{year}{2017}
+      \field{pages}{4719\bibrangedash 4732}
+      \range{pages}{14}
     \endentry
     \entry{Lawrence2014-xp}{article}{}
       \name{author}{5}{ul=2}{%
