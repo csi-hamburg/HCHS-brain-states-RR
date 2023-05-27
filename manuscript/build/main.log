@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  27 MAY 2023 14:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  27 MAY 2023 15:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1882,7 +1882,7 @@ Package pdftex.def Info: ./../analysis/code/R/pipeline_files/figure-html/power-1
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 77.
 
-Overfull \vbox (22.69739pt too high) has occurred while \output is active []
+Overfull \vbox (0.3593pt too high) has occurred while \output is active []
 
  [7 <./../analysis/code/R/pipeline_files/figure-html/power-1.png (PNG copy)>] (./src/tables/parcellations.tex
 Overfull \hbox (6.4786pt too wide) in alignment at lines 21--21
@@ -1894,7 +1894,10 @@ Overfull \hbox (5.17181pt too wide) in alignment at lines 45--45
 [][][]
  []
 
-) [8]) (./src/main/results.tex
+)
+Overfull \vbox (21.28288pt too high) has occurred while \output is active []
+
+ [8]) (./src/main/results.tex
 <./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png, id=288, 433.62pt x 361.35pt>
 File: ./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png Graphic file (type png)
 <use ./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png>
@@ -1941,13 +1944,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  47195 strings out of 480954
  905197 string characters out of 5907138
- 1720719 words of memory out of 5000000
+ 1720698 words of memory out of 5000000
  63509 multiletter control sequences out of 15000+600000
  477508 words of font info for 184 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  102i,24n,131p,2702b,2304s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/opensans/a_nvvucy.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc} </home/eckhard/.TinyTeX/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Bold.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Italic.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on build/main.pdf (16 pages, 7983799 bytes).
+Output written on build/main.pdf (16 pages, 7983748 bytes).
 PDF statistics:
  411 PDF objects out of 1000 (max. 8388607)
  340 compressed objects within 4 object streams
