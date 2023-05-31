@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  27 MAY 2023 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  31 MAY 2023 18:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1950,7 +1950,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  102i,24n,131p,2702b,2304s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/opensans/a_nvvucy.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc} </home/eckhard/.TinyTeX/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Bold.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Italic.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on build/main.pdf (16 pages, 7983748 bytes).
+Output written on build/main.pdf (16 pages, 7983690 bytes).
 PDF statistics:
  411 PDF objects out of 1000 (max. 8388607)
  340 compressed objects within 4 object streams

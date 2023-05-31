@@ -6,7 +6,7 @@ From the first \num{10000} participants of the HCHS we will aim to include those
 The ethical review board of the Landesärztekammer Hamburg (State of Hamburg Chamber of Medical Practitioners) approved the HCHS (PV5131), all participants provided written informed consent.
 
 \subsection{Demographic and clinical characterization}
-From the study database we will extract participants’ age at the time of inclusion in years, their self-reported gender and the number of years spent in education.
+From the study database we will extract participants’ age at the time of inclusion in years, their sex and the number of years spent in education.
 During the visit at the study center, participants undergo cognitive assessment using standardized tests.
 We will extract from the database their performance scores in the Trail Making Test part B, measured in seconds, as an operationalization of executive function and psychomotor processing speed \citep{Tombaugh2004-dp,arbuthnott2000trail}.
 
@@ -43,7 +43,7 @@ The two states with the highest average occupancy will be identified as the basi
 
 
 \subsection{Statistical analysis}
-For demographic (age, gender, years of education) and clinical (TMT-B) variables the number of missing records will be reported.
+For demographic (age, sex, years of education) and clinical (TMT-B) variables the number of missing records will be reported.
 For non-missing values, we will provide descriptive summary statistics using median and interquartile range.
 The proportion of men and women in the sample will be reported. Regression modelling will be carried out as a complete-case analysis.
 
@@ -55,13 +55,13 @@ For further analyses, non-zero WMH volumes will be subjected to a logarithmic tr
 Zero values will retain their value zero; to compensate, all models will include a binary indicator for zero WMH volume if at least one non-zero value is present.
 
 To assess the primary hypothesis of a negative association between the extent of ischemic white matter disease and time spent in high-occupancy brain states, we will perform a fixed-dispersion beta-regression to model the logit of the conditional expectation of the average fractional occupancy of two high-occupancy states as an affine function of the logarithmized WMH load.
-Age and gender will be included as covariates.
+Age and sex will be included as covariates.
 The strength of the association will be quantified as an odds ratio per interquartile ratio of the WMH burden distribution and accompanied by a 95\% confidence interval.
 Significance testing of the null hypothesis of no association will be conducted at the conventional significance level of 0.05.
 Estimation and testing will be carried out using the 'betareg' package v3.1.4 in R v4.2.1.
 
 To  assess the secondary hypothesis of an association between time spent in high-occupancy brain states and executive dysfunction, we will perform a generalized linear regression with a Gamma response distribution to model the logarithm of the conditional expected completion time in part B of the TMT as an affine function of the average fractional occupancy of two high-occupancy states.
-Age, gender, years of education and logarithmized WMH load will be included as covariates.
+Age, sex, years of education and logarithmized WMH load will be included as covariates.
 The strength of the association will be quantified as a multiplicative factor per percentage point and accompanied by a 95\% confidence interval.
 Significance testing of the null hypothesis of no association will be conducted at the conventional significance level of 0.05.
 Estimation and testing will be carried out using the glm function included in the 'stats' package from R v4.2.1.
