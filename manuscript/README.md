@@ -1,2 +1,2 @@
-# Stage 1 manuscript -- revision 1
+# Stage 1 manuscript -- revision 2
 [Functional MRI brain state occupancy in the presence of cerebral small vessel disease -- pre-registration for a replication analysis of the Hamburg City Health Study](./build/main.pdf)
