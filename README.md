@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/568095368.svg)](https://zenodo.org/badge/latestdoi/568095368)
 
-# Functional MRI brain state occupancy in the presence of cerebral small vessel disease -- pre-registration for a replication analysis of the Hamburg City Health Study
+# Functional MRI brain state occupancy in the presence of cerebral small vessel disease -- a pre-registered replication analysis of the Hamburg City Health Study
 
 [Stage 1 manuscript](https://github.com/csi-hamburg/HCHS-brain-states-RR/blob/3fde0738b3a4604ba7fba1ef6f0da6c34ca06984/manuscript/build/main.pdf)
 
