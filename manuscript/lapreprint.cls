@@ -101,7 +101,7 @@
 \RequirePackage{mdframed}
 \RequirePackage{lineno}
 \if@reqslineno\linenumbers\fi
-\if@endfloat\RequirePackage[nolists,nomarkers]{endfloat}\fi
+\if@endfloat\RequirePackage[lists,nomarkers]{endfloat}\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% FONT

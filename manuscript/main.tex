@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Declare document class
-\documentclass[12pt,PCIRR,lineno,doublespacing,endfloat]{lapreprint}
+\documentclass[12pt,PCIRR,lineno,doublespacing, endfloat]{lapreprint}
 
 
 % Import packages
@@ -28,7 +28,6 @@
 \usepackage{subcaption}
 \captionsetup[table]{labelsep=space}
 \captionsetup[figure]{labelsep=space}
-
 
 \newcommand{\mycaption}[2]{\caption[#1]{\textbar\, \textbf{#1.} #2}}
 
@@ -125,6 +124,7 @@
 \input{src/main/discussion.tex}
 \input{src/main/formal}
 \printbibliography
+
 
 % DON'T EDIT. If "endfloat" option is enabled all floats appear before appendices
 \if@endfloat\clearpage\processdelayedfloats\clearpage\fi 

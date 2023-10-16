@@ -1,30 +1,30 @@
 \renewcommand\cellset{\renewcommand\arraystretch{0.5}%
-    \setlength\extrarowheight{0pt}}
+\setlength\extrarowheight{0pt}}
+%\begin{fullwidth}
 %\addtocounter{table}{-1}
-   \begin{sidewaystable}[htbt]
-    \footnotesize
-    %\begin{fullwidth}
-        \begin{threeparttable}
-            \begin{spacing}{0.8}\centering
-                \begin{tabulary}{\textwidth}{LLLLLLL}
-                    \toprule
-                    \textbf{Question}   & \textbf{Hypothesis}     & \textbf{Sampling plan}     & \textbf{Analysis plan}   & \textbf{Rationale for deciding the sensitivity of the test} & \textbf{Interpretation given different outcomes} & \textbf{Theory that could be shown wrong by the outcome} \\
-                    \midrule
-                    Is severity of cerebral small disease, quantified by the volume of supratentorial white matter hyperintensities of presumed vascular origin (WMH), associated with time spent in high-occupancy brain states, defined by resting-state functional MRI? & 
-                    (\textbf{Primary}) Higher WMH volume is associated with lower average occupancy of the two highest-occupancy brain states. & 
-                    Available subjects with clinical and imaging data from the the HCHS \citep{Jagodzinski2020-lx} & 
-                    Standardized preprocessing of structural and functional MRI data • automatic quantification of WMH • co-activation pattern analysis • multivariable generalised regression analyses &
-                    Tradition &
-                    \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between cSVD and fractional occupancy;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis}    &
-                    Functional brain dynamics are not related to subcortical ischemic vascular disease.    \\
-                    \hline \\
-                    Is time spent in high-occupancy brain states associated with cognitive impairment, measured as the time to complete part B of the trail making test (TMT)? & (\textbf{Secondary}) Lower average occupancy of the two highest-occupancy brain states is associated with longer TMT-B time. & as above & as above & as above &  \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between fractional occupancy and cognitive impairment;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis} &   Cognitive function is not related to MRI-derived functional brain dynamics.\\
-                    \bottomrule
-                \end{tabulary}
-            \end{spacing}
-            \bigskip
-            \mycaption{Study Design Template}{Overview of the Scientific Questions addressed in the present study (first column), the two main hypotheses being investigated (second column), and details of the underlying study.}
-            \label{tab:SDT}
-        \end{threeparttable}
-    %\end{fullwidth}
-\end{sidewaystable}
+\begin{table}[htbt]
+\scriptsize
+\begin{adjustwidth}{-4cm}{}
+\begin{spacing}{0.8}\centering
+\begin{tabulary}{1.3\textwidth}{LLLLLLL}
+\toprule
+\textbf{Question}   & \textbf{Hypothesis}     & \textbf{Sampling plan}     & \textbf{Analysis plan}   & \textbf{Rationale for test sensitivity} & \textbf{Interpretation given different outcomes} & \textbf{Theory that could be shown wrong by the outcome} \\
+\midrule
+Is severity of cerebral small disease, quantified by the volume of supratentorial white matter hyperintensities of presumed vascular origin (WMH), associated with time spent in high-occupancy brain states, defined by resting-state functional MRI? & 
+(\textbf{Primary}) Higher WMH volume is associated with lower average occupancy of the two highest-occupancy brain states. & 
+Available subjects with clinical and imaging data from the the HCHS \citep{Jagodzinski2020-lx} & 
+Standardized preprocessing of structural and functional MRI data • automatic quantification of WMH • co-activation pattern analysis • multivariable generalised regression analyses &
+Tradition &
+\makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between cSVD and fractional occupancy;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis}    &
+Functional brain dynamics are not related to subcortical ischemic vascular disease.    \\
+\hline \\
+Is time spent in high-occupancy brain states associated with cognitive impairment, measured as the time to complete part B of the trail making test (TMT)? & (\textbf{Secondary}) Lower average occupancy of the two highest-occupancy brain states is associated with longer TMT-B time. & as above & as above & as above &  \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between fractional occupancy and cognitive impairment;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis} &   Cognitive function is not related to MRI-derived functional brain dynamics.\\
+\bottomrule
+\end{tabulary}
+\end{spacing}
+\bigskip
+\mycaption{Study Design Template}{Overview of the Scientific Questions addressed in the present study (first column), the two main hypotheses being investigated (second column), and details of the underlying study.}
+\label{tab:SDT}
+\end{adjustwidth}
+\end{table}
+%\end{fullwidth}
