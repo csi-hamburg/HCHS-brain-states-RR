@@ -6,6 +6,8 @@
 
 [Stage 2 manuscript](./manuscript/build/main.pdf)
 
+[Stage 1-2 diff (abstract, introduction, methods only)](./manuscript/S2_diff.pdf)
+
 
 [Statistical analysis plan (Stage 1)](https://github.com/csi-hamburg/HCHS-brain-states-RR/blob/3fde0738b3a4604ba7fba1ef6f0da6c34ca06984/analysis/code/R/pipeline.md)
 
