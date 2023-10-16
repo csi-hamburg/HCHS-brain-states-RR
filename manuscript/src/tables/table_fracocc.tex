@@ -1,0 +1,28 @@
+%\addtocounter{table}{-1}
+\begin{table}
+\centering
+\setlength{\LTpost}{0mm}
+\begin{longtable}{ll}
+\toprule
+& \textbf{N = 1,651} \\ 
+\midrule
+WMH volume\textsuperscript{1}, \unit{\milli\litre} & \\
+\quad Total & 1.05 (0.47 -- 2.37), 9\,Z\\
+\quad Periventricular & 0.94 (0.43 -- 2.04), 9\,Z \\
+\quad Deep & 0.10 (0.03 -- 0.37), 344\,Z  \\
+Motion during rs-fMRI \\
+\quad Framewise displacement, \unit{\milli\metre} & 0.21 (0.15 -- 0.63)\\
+\quad RMSD, \unit{\milli\metre} & 0.086 (0.058 -- 0.12)\\
+\quad DVARS &  27.8 (24.3 -- 31.8)\\
+Fractional occupancy, \% \\
+\quad DMN+ & 24.8 (20.8 -- 28.0) \\ 
+\quad DMN- & 24.0 (20.0 -- 28.0) \\ 
+\quad S3 & 18.4 (15.2 -- 22.4) \\ 
+\quad S4 & 16.8 (12.8 -- 20.8) \\ 
+\quad S5 & 15.2 (12.0 -- 19.2) \\
+\bottomrule
+\end{longtable}
+\textsuperscript{1}Number of zero values indicated by Z
+\mycaption{Structural and functional imaging characteristics}{Data are presented as median (interquartile range). Supratentorial WMH volumes were obtained by semiautomatic segmentation of FLAIR images using a BINACA/LOCATE-based $k$-nearest neighbours algorithm and stratified by their distance to the lateral ventricles (<\qty{10}{\milli\metre}, periventricular; >\qty{10}{\milli\metre}, deep). Motion parameters were estimated during fMRIprep processing of BOLD scans. Fractional occupancies were calculated by assigning individual BOLD volumes to one of five discrete brain states defined by k-means clustering-based co-activation pattern analysis.Two high-occupancy states are labelled DMN+ and DMN- in view of their network connectivity profiles as shown in \Cref{fig:spider}.}
+\label{tab:fracocc}
+\end{table}

@@ -1,0 +1,217 @@
+\begin{sidewaystable}[htbt]
+    \footnotesize
+    %\begin{fullwidth}
+        \begin{threeparttable}
+            \begin{spacing}{0.8}\centering
+                \begin{tabulary}{\textwidth}{LLLLLLL}
+                    \toprule
+                    \textbf{Question}   & \textbf{Hypothesis}     & \textbf{Sampling plan}     & \textbf{Analysis plan}   & \textbf{Rationale for deciding the sensitivity of the test} & \textbf{Interpretation given different outcomes} & \textbf{Theory that could be shown wrong by the outcome} \\
+                    \midrule
+                    Is severity of cerebral small disease, quantified by the volume of supratentorial white matter hyperintensities of presumed vascular origin (WMH), associated with time spent in high-occupancy brain states, defined by resting-state functional MRI? &
+                    (\textbf{Primary}) Higher WMH volume is associated with lower average occupancy of the two highest-occupancy brain states. &
+                    Available subjects with clinical and imaging data from the the HCHS \citep{Jagodzinski2020-lx} &
+                    Standardized preprocessing of structural and functional MRI data • automatic quantification of WMH • co-activation pattern analysis • multivariable generalised regression analyses &
+                    Tradition &
+                    \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between cSVD and fractional occupancy;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis}    &
+                    Functional brain dynamics are not related to subcortical ischemic vascular disease.    \\
+                    \hline \\
+                    Is time spent in high-occupancy brain states associated with cognitive impairment, measured as the time to complete part B of the trail making test (TMT)? & (\textbf{Secondary}) Lower average occupancy of the two highest-occupancy brain states is associated with longer TMT-B time. & as above & as above & as above &  \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between fractional occupancy and cognitive impairment;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis} &   Cognitive function is not related to MRI-derived functional brain dynamics.\\
+                    \bottomrule
+                \end{tabulary}
+            \end{spacing}
+            \bigskip
+            \mycaption{Study Design Template}{Overview of the Scientific Questions addressed in the present study (first column), the two main hypotheses being investigated (second column), and details of the underlying study.}
+            \label{tab:SDT}
+        \end{threeparttable}
+    %\end{fullwidth}
+\end{sidewaystable}
+\efloatseparator
+ 
+\begin{table}[bt]
+    \begin{threeparttable}
+        \begin{subtable}[t]{.75\textwidth}
+            \label{tab:parcellations2}
+            % Use "S" column identifier to align on decimal point
+            \begin{tabularx}{\textwidth}{l l l}
+                \toprule
+                \textbf{Name of the atlas}  & \textbf{\#parcels}                                  & \textbf{Reference}          \\
+                \midrule
+                Desikan--Killiany           & \num{86}                                            & \cite{desikan2006automated} \\
+                AAL                         & \num{116}                                           & \cite{tzourio2002automated} \\
+                Harvard--Oxford             & \num{112}                                           & \cite{makris2006decreased}  \\
+                glasser360                  & \num{360}                                           & \cite{Glasser2016-ia}       \\
+                gordon333                   & \num{333}                                           & \cite{Gordon2016-wy}        \\
+                power264                    & \num{264}                                           & \cite{Power2011-xf}         \\
+                schaefer\{N\}               & \makecell[lt]{\num{100} \\ \num{200}\\ \num{400}}   & \cite{Schaefer2018-bo}      \\
+                \bottomrule
+            \end{tabularx}
+            \begin{tablenotes}
+                \item{AAL:} Automatic Anatomical Labelling
+            \end{tablenotes}
+            \caption{Parcellations}
+        \end{subtable}
+        \qquad
+        \begin{subtable}[t]{.75\textwidth}
+            \label{tab:parcellations}
+            % Use "S" column identifier to align on decimal point
+            \begin{tabularx}{\textwidth}{l l l}
+                \toprule
+                \textbf{Design}        & \textbf{Reference}                 \\
+                \midrule
+                24p                    & \cite{friston1996movement}         \\
+                24p + GSR              & \cite{macey2004method}             \\
+                36p              & \cite{satterthwaite2013improved}   \\
+                36p + spike regression & \cite{cox1996afni}                 \\
+                36p + despiking        & \cite{satterthwaite2013improved}   \\
+                36p + scrubbing  & \cite{power2014methods}            \\
+                aCompCor               & \cite{muschelli2014reduction}      \\
+                tCompCor               & \cite{behzadi2007component}        \\
+                AROMA                  & \cite{pruim2015ica}                \\
+                \bottomrule
+            \end{tabularx}
+            \begin{tablenotes}
+                \item GSR: Global signal regression, AROMA: Automatic Removal of Motion Artifacts
+            \end{tablenotes}
+            \caption{Confound regression strategies, adapted from \citep{Ciric2017-cl}}
+        \end{subtable}
+        \makeatletter\def\TPT@hsize{}\makeatletter
+    \end{threeparttable}
+    \mycaption{Multiverse analysis}{Overview over different brain parcellations and confound regression strategies implemented using xcpEngine \citep{ciric2018mitigating}. A total of $9\times 9=81$ analytical combinations were explored to assess the robustness of our results with respect to these processing choices.}
+    \label{tab:multiverse}
+\end{table}
+\efloatseparator
+ 
+\begin{table}
+\centering
+\setlength{\LTpost}{0mm}
+\begin{longtable}{ll}
+\toprule
+ & \textbf{N = 1,651} \\
+\midrule
+\emph{Demographics} (no Missing n (\%))\\
+\hline
+Age, \unit{\year} &  \\
+\quad Median (IQR) & 66 (59 -- 72) \\
+Sex &  \\
+\quad Male & 940/1651 (57\%) \\
+\quad Female & 711/1651 (43\%) \\
+\rule{0pt}{3ex}
+\emph{Cardiovascular risk factors}\\
+\hline
+Hypertension & \\
+\quad Present & 1177/1611 (73.1\%) \\
+\quad Missing n (\%) & 85 (5.1\%) \\
+Diabetes & \\
+\quad Present & 157/1566 (10\%)\\
+\quad Missing n (\%) & 40 (2.4\%) \\
+Smoking & \\
+\quad Present & 200/1360 (14.7\%) \\
+\quad Missing n (\%) & 201 (12.9\%\%)\\
+Hyperlipidaemia & \\
+\quad Present & 426/1578 (27\%)\\
+\quad Missing n (\%) & 73 (4.4\%) \\
+\rule{0pt}{3ex}
+\emph{Cognitive test results}\\
+\hline
+MMSE, \# (max. 30) &  \\
+\quad Median (IQR) & 28 (27 -- 29) \\
+\quad Missing n (\%) & 129 (7.8\%) \\
+Vocabulary (MWT-B), \# (max. 37) &  \\
+\quad Median (IQR) & 32 (30 -- 34) \\
+\quad Missing n (\%) & 295 (18\%) \\
+Word recall, \# (max. 10) &  \\
+\quad Median (IQR) & 8 (6 -- 9) \\
+\quad Missing n (\%) & 180 (11\%) \\
+Animal Naming &  \\
+\quad Median (IQR) & 24 (20 -- 29) \\
+\quad Missing n (\%) & 116 (7.0\%) \\
+TMT-A, seconds &  \\
+\quad Median (IQR) & 38 (31 -- 48) \\
+\quad Missing n (\%) & 144 (8.7\%) \\
+TMT-B, seconds &  \\
+\quad Median (IQR) & 83 (65 -- 110) \\
+\quad Missing n (\%) & 162 (9.8\%) \\
+\rule{0pt}{3ex}
+\emph{History}\\
+\hline
+Diagnosed dementia & \\
+\quad Present & 6/1645 (0.4\%)\\
+\quad Missing n (\%) & 6 (0.4\%) \\
+Years of education &  \\
+\quad Median (IQR) & 13 (12 -- 16) \\
+\quad Missing n (\%) & 34 (2\%) \\
+\bottomrule
+\end{longtable}
+\mycaption{Descriptive statistics of the study population}{Data are presented as median (interquartile range) or count (percentage) of non-missing items, as appropriate. Number of percentage of missing items are reported separately.}
+\label{tab:democog}
+\end{table}
+\efloatseparator
+ 
+\begin{table}
+\centering
+\setlength{\LTpost}{0mm}
+\begin{longtable}{ll}
+\toprule
+& \textbf{N = 1,651} \\
+\midrule
+WMH volume\textsuperscript{1}, \unit{\milli\litre} & \\
+\quad Total & 1.05 (0.47 -- 2.37), 9\,Z\\
+\quad Periventricular & 0.94 (0.43 -- 2.04), 9\,Z \\
+\quad Deep & 0.10 (0.03 -- 0.37), 344\,Z  \\
+Motion during rs-fMRI \\
+\quad Framewise displacement, \unit{\milli\metre} & 0.21 (0.15 -- 0.63)\\
+\quad RMSD, \unit{\milli\metre} & 0.086 (0.058 -- 0.12)\\
+\quad DVARS &  27.8 (24.3 -- 31.8)\\
+Fractional occupancy, \% \\
+\quad DMN+ & 24.8 (20.8 -- 28.0) \\
+\quad DMN- & 24.0 (20.0 -- 28.0) \\
+\quad S3 & 18.4 (15.2 -- 22.4) \\
+\quad S4 & 16.8 (12.8 -- 20.8) \\
+\quad S5 & 15.2 (12.0 -- 19.2) \\
+\bottomrule
+\end{longtable}
+\textsuperscript{1}Number of zero values indicated by Z
+\mycaption{Structural and functional imaging characteristics}{Data are presented as median (interquartile range). Supratentorial WMH volumes were obtained by semiautomatic segmentation of FLAIR images using a BINACA/LOCATE-based $k$-nearest neighbours algorithm and stratified by their distance to the lateral ventricles (<\qty{10}{\milli\metre}, periventricular; >\qty{10}{\milli\metre}, deep). Motion parameters were estimated during fMRIprep processing of BOLD scans. Fractional occupancies were calculated by assigning individual BOLD volumes to one of five discrete brain states defined by k-means clustering-based co-activation pattern analysis.Two high-occupancy states are labelled DMN+ and DMN- in view of their network connectivity profiles as shown in \Cref{fig:spider}.}
+\label{tab:fracocc}
+\end{table}
+\efloatseparator
+ 
+\begin{table}
+\centering
+\setlength{\LTpost}{0mm}
+\begin{longtable}{lccc}
+\toprule
+ & Estimate & P & 95\%-CI \\
+\midrule
+Intercept & 0.24 & <0.0001 & 0.21 -- 0.27 \\
+WMH, per 5.1-fold increase\textsuperscript{1} & 0.94 & <0.0001 & 0.92 -- 0.96 \\
+Age, per 10 years & 1.04 & 0.001 & 1.01 -- 1.06 \\
+Female sex & 1.12 & <0.0001 & 1.09 -- 1.16 \\
+$\mathbf{1}_{\{\operatorname{WMH=0}\}}$ & 0.93 & 0.477 & 0.75 -- 1.14 \\
+\bottomrule
+\end{longtable}
+\textsuperscript{1} Interquartile ratio $2.37/0.468=5.06$
+\mycaption{Association between time-spent in high-occupancy DMN-related brain states and WMH adjusted for age and sex}{Beta regression table estimated from $n=1651$ independent participants using the model equation $\operatorname{FO}^{\text{high}} \sim \log{\operatorname{WMH}^+} + \mathbf{1}_{\{\operatorname{WMH=0}\}} + \operatorname{age} + \operatorname{sex}$.}
+\label{tab:hyp1}
+\end{table}
+\efloatseparator
+ 
+\begin{table}
+\setlength{\LTpost}{0mm}
+\begin{longtable}{lccc}
+\toprule
+ & Estimate & P & 95\%-CI \\
+\midrule
+Intercept & 53.41 & $<0.0001$ & 42.7 -- 66.8 \\
+$\operatorname{FO}^{\text{high}}$, per 5\% & 0.98 & 0.0116 & 0.96 -- 0.99 \\
+WMH, per 5.1-fold increase\textsuperscript{1} & 1.01 & 0.367 & 0.98 -- 1.05 \\
+Age, per 10 years & 1.18 & <0.0001 & 1.15 -- 1.21 \\
+Female sex & 0.99 & 0.666 & 0.95 -- 1.03 \\
+Education, per year & 0.97 & <0.0001 & 0.97 -- 0.98 \\
+$\mathbf{1}_{\{\operatorname{WMH=0}\}}$ & 0.97 & 0.398 & 0.92 -- 1.03 \\
+\bottomrule
+\end{longtable}
+\textsuperscript{1} Interquartile ratio $2.37/0.468=5.06$
+\mycaption{Association between TMT-B and time spent in high-occupancy DMN-related brain states adjusted for age, sex, WMH volume and years of education}{Gamma regression table estimated from $n=1483$ independent participants using the model equation $\operatorname{TMT-B} \sim \operatorname{FO}^{\text{high}} + \log{\operatorname{WMH}^+} + \mathbf{1}_{\{\operatorname{WMH=0}\}} + \operatorname{age} + \operatorname{sex}$.}
+\label{tab:hyp2}
+\end{table}

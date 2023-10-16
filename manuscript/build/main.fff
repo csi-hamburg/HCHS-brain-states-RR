@@ -1,0 +1,63 @@
+\begin{figure}
+    \includegraphics[width=.5\linewidth]{./../analysis/derivatives/power-1.png}
+    \mycaption{Sample size and power estimation}{A-priori estimated power for different sample sizes was obtained as the proportion of synthetic data sets in which the null hypothesis of no association between WMH volume and time spent in high-occupancy brain states an be rejected at the $\alpha=0.05$ significance level. Proportions are based on a total of \num{10000} synthetic data sets obtained by bootstrapping the data presented in \citep{Schlemm2022-he}. Highlighted in orange are the smallest sample size ensuring a power of at least \qty{80}{\percent} ($n=960$), the sample size of the pilot data ($n=988$, post-hoc power \qty{81.3}{\percent}), and the expected sample sample size for this replication study ($n=1500$, a-priori power \qty{93.9}{\percent}).}
+    \label{fig:power}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \includegraphics[width=0.5\linewidth]{./../analysis/code/R/FLOW.png}
+    \mycaption{Study flowchart}{Composition of the study population after application of inclusion and exclusion criteria, and image processing.}
+    \label{fig:flowchart}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \includegraphics[width=.5\linewidth]{./../analysis/derivatives/Figures/Fig_hyp1.png}
+    \mycaption{Association between time spent in high-occupancy brain states and supratentorial WMH volume}{Point estimates (black line) and 95\%-confidence region (light blue ribbon) of the conditional mean fractional occupancy are obtained from unadjusted beta regression modelling. Each marker represents one of N=1642 independent subjects with a non-zero total WMH volume. }
+    \label{fig:hyp1}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \includegraphics[width=.5\linewidth]{./../analysis/derivatives/Figures/Fig_hyp2.png}
+    \mycaption{Association between time spent in high-occupancy DMN-related brain states and TMT-B completion time}{Point estimates (black line) and 95\%-confidence region (light blue ribbon) of the conditional mean TMT-B completion time are obtained from unadjusted Gamma regression modelling. Each marker represent one of N=1482 independent subjects with non-zero total WMH volume and available TMT-B data.}
+    \label{fig:hyp2}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/Fig_mv.png}
+    \mycaption{Multiverse analysis}{Adjusted effect size estimates of the associations between cSVD severity (WMH volume) and network dedifferentiation (less time spent in high-occupancy DMN-related brain states) [\textbf{A)}], and between network dedifferentiation and executive function (TMT-B completion time) [\textbf{B)}]. Effect sizes are given per 5.1-fold increase in WMH volume and a 5\%-increase in fractional occupancy, respectively. Markers and line segments indicate point estimates and 95\%-confidence intervals for adjusted odds ratios for different combinations of confound regression strategy and brain parcellation. The primary analytical choices are indicated by dark blue circles (\emph{}36p) and light blue shading (Schaefer-400). Model equations for beta and gamma regressions, respectively, are given at the top. Vertical lines indicate no effect (black) and the effect size observed in the discovery cohort \citep{Schlemm2022-he} (light blue), respectively, for reference. Effect sizes not reaching nominal statistical significance ($\alpha=0.05$) are shown desaturated. Corresponding data based on periventricular and deep WMH volumes are given in the Supplement.} %where can I find supplement?
+    \label{fig:mv}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    %\begin{subfigure}{1.0\textwidth}
+    \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png}
+    %\caption{Spider400}
+    %\label{fig:spider400}
+    %\end{subfigure}
+    % \begin{subfigure}{1.0\textwidth}
+    % \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/spiderplot_36p~schaefer200x7.png}
+    % \caption{Spider200}
+    % \label{fig:spider200}
+    % \end{subfigure}
+    % \begin{subfigure}{1.0\textwidth}
+    %     \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/spiderplot_36p~schaefer100x7.png}
+    %     \caption{Spider200}
+    %     \label{fig:spider100}
+    %     \end{subfigure}
+    \mycaption{Connectivity profiles of brain states}{Cosine similarity between centroids of each identified brain state and signed indicator vectors corresponding to activation (green) and suppression (red) of each of seven predefined large-scale functional brain networks \citep{Yeo2011-qg}. States are ordered by mean fractional occupancy across N=1651 independent subjects, indicated by parenthetical percentages. Two high-occupancy states are characterized by activation or suppression of the DMN, the remaining three low-occupancy states (S3--5) were not used in the present study. Note that mean FO values are similar, but not identical, to median FO values reported in \Cref{tab:fracocc}.}
+    \label{fig:spider}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/Fig_FOvsCOG.png}
+    \mycaption{Association between time spent in high-occupancy DMN-related brain states and cognitive measures}{Point estimates (black line) and 95\%-confidence region (light blue ribbon) of the conditional mean cognitive measures are obtained from unadjusted binomial (top row: Mini-Mental State Examination, Vocabulary, Word List Recall, logit link) and Gamma regression (bottom row: Animal Naming, Trail Making Test [TMT] A/B: log link) modelling.
+
+    Each marker represents one of N independent subjects, as indicated. Insets report effect sizes and P-values both with (adjusted [a-]) and without adjustment for the nuisance variables age, sex, WMH volume (coded as in \Cref{fig:mv}), and years of education. Effect sizes were quantified as odds ratios (ORs) (top) or response scale multipliers [exp(b)] (bottom), and correspond to a 20\%-increase in fractional occupancy. Note the different reference change in FO compared to \Cref{tab:hyp2} chosen to adequately represent some of the smaller effect sizes. The bottom right panel highlighted in dark blue reproduces \Cref{fig:hyp2}.}
+    \label{fig:FOvsCOG}
+\end{figure}

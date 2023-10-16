@@ -1,0 +1,239 @@
+---
+title: "Flow chart"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMM YYYY"
+institute: "UKE, Neurology, CSI"
+output:
+  html_document:
+  keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, warning = FALSE, message = FALSE)
+options(digits = 2)
+```
+
+```{r}
+# import
+first_batch <- read_lines('./../../../input/HCHS996.dat')
+
+missings_exclusions <- read_csv(
+    "./../../../input/CSI_HCHS_EXPORT_2600_MISSINGS_EXCLUSION.csv",
+    col_type = cols(
+        sub_id = col_character(),
+        ses_id = col_double(),
+        nrad_exclusion = col_double(),
+        flair_exclusion = col_double(),
+        freesurfer_exclusion = col_double(),
+        wmh_exclusion = col_double(),
+        missing_flair = col_double(),
+        missing_t1 = col_double(),
+        missing_t2 = col_double(),
+        missing_dwi = col_double(),
+        missing_func = col_double(),
+        missing_asl = col_double(),
+        dwi_exclusion = col_double(),
+        tbss_exclusion = col_double(),
+        psmd_exclusion = col_double(),
+        t1_exclusion = col_double(),
+        aslprep_exclusion = col_double()
+)) |>
+    mutate(
+        sub_id = str_remove(sub_id, "sub-"),
+    ) |>
+    mutate_at(
+        vars(-sub_id, -ses_id), as.factor)
+
+cSVD_all <- read_csv( # nolint: object_name_linter.
+    "./../../../derivatives/WMH/cSVD_all.csv",
+    col_type = cols(
+        ID = col_character(),
+        WMHsmooth = col_double(),
+        WMHsmoothdeep = col_double(),
+        WMHsmoothperi = col_double(),
+    )
+)
+
+xcp_complete <- read_csv(
+    "./../../../input/xcp_IDs.dat",
+    col_types = cols(
+        `24p` = col_character(),
+        `24p_gsr` = col_character(),
+        `36p` = col_character(),
+        `36p_despike` = col_character(),
+        `36p_scrub` = col_character(),
+        `36p_spkreg` = col_character(),
+        acompcor = col_character(),
+        aroma = col_character(),
+        `aroma-gsr` = col_character(),
+        tcompcor = col_character()
+)
+) |>
+  mutate_all(str_remove, "sub-")
+
+intraax_raumf <- read_lines("./../../../input/subjects_mit_intraax_raumf.csv")
+
+next10000 <- read_lines("./../../../input/next10000.dat")
+
+# HCHS cohort
+mri_cohort <- pull(missings_exclusions, sub_id)
+mri_cohort <- mri_cohort[!mri_cohort %in% next10000]
+
+# Unseen subjects
+second_batch <- mri_cohort[!mri_cohort %in% first_batch]
+first970 <- mri_cohort[mri_cohort %in% first_batch]
+
+write_lines(first970, "./../../../input/first970.dat")
+
+# Missing sequences
+missing_t1 <- missings_exclusions |>
+    dplyr::filter(missing_t1 == 1) |> pull(sub_id)
+missing_t1 <- missing_t1[missing_t1 %in% second_batch]
+
+missing_flair <- missings_exclusions |>
+    dplyr::filter(missing_flair == 1) |> pull(sub_id)
+missing_flair <- missing_flair[missing_flair %in% second_batch]
+
+missing_func <- missings_exclusions |>
+    dplyr::filter(missing_func == 1) |> pull(sub_id)
+missing_func <- missing_func[missing_func %in% second_batch]
+
+# complete imaging
+ex_missing <- second_batch[!second_batch %in% c(missing_t1, missing_flair, missing_func)]
+
+# It's not a tumor
+ex_tumor <- ex_missing[!ex_missing %in% intraax_raumf]
+
+# WMH good
+wmh_all <- pull(cSVD_all, ID)
+wmh_complete <- wmh_all[wmh_all %in% ex_tumor]
+failed_wmh <- ex_tumor[!ex_tumor %in% wmh_all]
+
+# XCP good
+xcp24p_all <- xcp_complete |>
+    dplyr::filter(!is.na(`24p`)) |> 
+    pull(`24p`)
+xcp24p_complete <- xcp24p_all[xcp24p_all %in% ex_tumor]
+failed_xcp24p <- ex_tumor[!ex_tumor %in% xcp24p_all]
+
+# general processing good
+failed_both <- failed_xcp24p[failed_xcp24p %in% failed_wmh]
+
+# final batch
+final_batch <- wmh_complete[wmh_complete %in% xcp24p_complete]
+```
+
+## Figure 1
+
+```{r setupFLOW}
+x <- 'digraph D {
+  node [shape="box"]
+  //splines = ortho
+  m1 [label = "Available HCHS data (n={{m1}})"]
+  subgraph g1 {
+    rank = same
+    n1 [shape = point, width = 0.01, height = 0.01, fillcolor = black, color = black]
+    e1 [label = "Previously analysed (n={{e1}})"]
+  }
+  m2 [label = "Unseen participants (n={{m2}})"]
+  subgraph g2 {
+    rank = same
+    n2 [shape = point, width = 0.01]
+    e2 [label = "Sequences missing\\l -T1 missing (n={{T1missing}})\\l -FLAIR missing (n={{FLAIRmissing}})\\l -BOLD missing (n={{BOLDmissing}})\\l"]
+  }
+  m3 [label = "Complete imaging (n={{m3}})"]
+  subgraph TUMOR {
+    rank = same
+    nTUMOR [shape = point, width = 0.01]
+    eTUMOR [label = "Intra-axial space-occupying lesion (n={{eTUMOR}})"]
+  }
+  mTUMOR [label = "Study population (n={{mTUMOR}})"]
+  
+  subgraph PREPROC {
+    rank = same
+    nPREPROC [shape = point, width = 0.01]
+    ePREPROC [label = "General preprocessing failed (n={{ePREPROC}})"]
+  }
+  mPREPROC [label = "Preprocessing succesfull (n={{mPREPROC}})"]
+  
+  //n3 [shape = point, width = 0.01]
+  subgraph g3 {
+    rank = same
+    e3a [label = "WMH segmentation failed (n={{e3a}})"]
+    n3a [shape = point, width = 0.01]
+    n3b [shape = point, width = 0.01]
+    e3b [label = "xcpEngine failed (n={{e3b}})"]
+  }
+  subgraph g4 {
+    rank = same
+    m4a [label = "WMH volumes available (n={{m4a}})"]
+    m4b [label = "Deconfounded FC available (n={{m4b}})"]
+  }
+  
+  mFINAL [label = "Study sample (n={{FINAL}})", style = "filled, dashed", penwidth = 3, fillcolor = steelblue2, color = steelblue4]
+  
+  m1 -> n1 [dir = none]
+  n1 -> e1
+  n1 -> m2
+  m2 -> n2 [dir = none]
+  n2 -> e2
+  n2 -> m3
+  
+  m3 -> nTUMOR [dir = none]
+  nTUMOR -> eTUMOR
+  nTUMOR -> mTUMOR
+  
+  mTUMOR -> nPREPROC [dir = none]
+  nPREPROC -> ePREPROC
+  nPREPROC -> mPREPROC
+  
+  //mPREPROC -> n3 [dir = none]
+  mPREPROC:s -> n3a [dir = none]
+  mPREPROC:s -> n3b [dir = none]
+  //n3 -> n3a [dir = none]
+  e3a:e -> n3a:w [dir = back]
+  //n3 -> n3b [dir = none]
+  n3b -> e3b
+  
+  e3a -> n3a -> n3b -> e3b [style = invisible, dir = none]
+  
+  n3a -> m4a
+  n3b -> m4b
+  
+  m4a -> mFINAL
+  m4b -> mFINAL
+}'
+
+
+```
+
+```{r STARD}
+vals <- list(
+  m1 = length(mri_cohort),
+  m2 = length(second_batch),
+  e1 = length(mri_cohort) - length(second_batch),
+  T1missing = length(missing_t1),
+  FLAIRmissing = length(missing_flair),
+  BOLDmissing = length(missing_func),
+  m3 = length(ex_missing),
+  mTUMOR = length(ex_tumor),
+  eTUMOR = length(ex_missing) - length(ex_tumor),
+  ePREPROC = length(failed_both),
+  mPREPROC = length(ex_tumor) - length(failed_both),
+  e3a = length(failed_wmh) - length(failed_both),
+  e3b = length(failed_xcp24p) - length(failed_both),
+  m4a = length(wmh_complete),
+  m4b = length(xcp24p_complete),
+  FINAL = length(final_batch)
+)
+
+#| output: asis
+FLOW <- do.call(knitr::knit_expand, c(list(text = x), vals))
+res <- c(
+  "```{dot FLOW}"
+  , FLOW
+  , "```")
+cat(res, sep = '\n')
+readr::write_file(FLOW, file = 'FLOW.dot')
+# system("dot -Tsvg FLOW.dot > FLOW.svg")
+```

@@ -1,24 +1,108 @@
-\section{Code and pilot data}
-Summary data from the first \num{1000} imaging data points of the HCHS have been published with \citep{Schlemm2022-he}  and form the basis for the hypotheses tested in this replication study.
-We have implemented our prespecified analysis pipeline described above in R and Matlab, and applied it to this previous sample.
-Data, code and results have been stored on GitHub (\url{https://github.com/csi-hamburg/HCHS_brain_states_RR}) und preserved on Zenodo.
-
-Thus re-analysing data from \num{988} subjects, the separation between two high-occupancy and three low-occupancy brain states could be reproduced for all combinations of brain parcellation and confound regression strategies (\Cref{fig:separation}).
+\section{Results}
+For this replication study, a total of \num{2648} datasets were available, of which \num{970} were already included in our previous analysis and thus discarded. In \num{13} of the resulting \num{1678} datasets, one or more MRI sequences were missing. Of the complete datasets (n=\num{1665}), we excluded \num{5} participants due to intra-axial space-occupying lesions. An additional \num{9} subjects were excluded because of unsuccessful preprocessing, WMH segmentation, or xcpEngine failure, resulting in \num{1651} datasets for analysis. A study-flowchart is provided in \Cref{fig:flowchart}.
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{./../analysis/code/R/pipeline_files/figure-html/highVSlowFOplot-1.png}
-    \caption{Point estimates (dots) and \qty{95}{\percent} confidence intervals (line segments) for the mean difference in fractional occupancy between high- and low occupancy states are shown for different confound regression strategies (groups along the vertical axis) and brain parcellations (color). 
-    The difference in FO for a particular choice of regression strategy and brain parcellation is nominally statistically significantly different from zero at a significance level of 5\% if the corresponding interval does not contain zero. Hence, the FO difference is significant for \emph{all} processing choices, reflecting the separation between high- und low-occupancy states.
-    The primary choices (\textit{36p} and \textit{schaefer400}) are highlighted by a yellow box and thick pink line, respectively. The effect size reported in \citep{Schlemm2022-he} is indicated by a vertical line at 0.08830623.}
-    \label{fig:separation}
+    \includegraphics[width=0.5\linewidth]{./../analysis/code/R/FLOW.png}
+    \mycaption{Study flowchart}{Composition of the study population after application of inclusion and exclusion criteria, and image processing.}
+    \label{fig:flowchart}
 \end{figure}
 
-In a multiverse analysis, the main finding was somewhat robust with respect to these choices: a statistically significant negative association between WMH load and time spent in high-occupancy states was observed in 18/81 scenarios, with 5/81 statistically significant positive associations occurring with the Desikan--Killiany parcellation only (\Cref{fig:refWMHvsFO}).
+
+
+
+\input{src/tables/table_democog.tex}
+
+Baseline demographic and cognitive values, including the number of missing items, are reported in \Cref{tab:democog}.
+
+WMH volumes (median \qty{1.05}{\milli\litre}, IQR \qtyrange{0.47}{2.37}{\milli\litre}), motion estimates, and fractional occupancies of brain states 1 through 5 are reported in \Cref{tab:fracocc}. 
+\input{src/tables/table_fracocc.tex}
+
+In an outcome-neutral quality check of the implementation of (i) the MRI processing pipeline, (ii) brain state estimation, and (iii) co-activation pattern analysis, the mean difference in fractional occupancy between high- and low-occupancy states was consistently maintained, with a point-estimate of the separation between two high-occupancy and three low-occupancy states of \qty{6.7}{\percent} (\qty{95}{\percent} confidence interval, \qtyrange{6.2}{7.1}{\percent}) in the \emph{36p} paradigm. 
+This indicates that the implementation of the pipeline was correct and that the brain state estimation and co-activation pattern analysis worked as intended. 
+
+
+\subsection{Pre-registered hypotheses}
+\subsubsection{Association between WMH load and fractional occupancy}
+The results of the test of our primary preregistered hypothesis of an association between supratentorial WMH volume and the time spent in high-occupancy brain states are shown in \Cref{fig:hyp1} and \Cref{tab:hyp1}.
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{./../analysis/code/R/pipeline_files/figure-html/regWMHvsFOplot-1.png}
-    \caption{On the left, scatter plots of average fractional occupancies in high-occupancy states against WMH volume on a logarithmic scale (base 10 for easier visualization) for different combinations of confound regression strategies and brain parcellations. Linear regression lines indicate the direction of the unadjusted association between log(WMH) and occupancy. Background color of individual panels indicates the direction of the association after adjustment for age, sex and zero WMH volume (green, negative; red, positive). A pale background indicates that the association between log(WMH) and average occupancy is not statistically different from zero. On the right, the same information is shown using point estimates and \qty{95}{\percent} confidence intervals for the adjusted odds ratio of the association.}
-    \label{fig:refWMHvsFO}
+    \includegraphics[width=.5\linewidth]{./../analysis/derivatives/Figures/Fig_hyp1.png}
+    \mycaption{Association between time spent in high-occupancy brain states and supratentorial WMH volume}{Point estimates (black line) and 95\%-confidence region (light blue ribbon) of the conditional mean fractional occupancy are obtained from unadjusted beta regression modelling. Each marker represents one of N=1642 independent subjects with a non-zero total WMH volume. }
+    \label{fig:hyp1}
 \end{figure}
 
-The secondary finding of an association between greater TMT-B times and lower fractional occupancy was similarly robust with 12/81 statistically significant negative and no statistically significant positive associations.
+\input{src/tables/table_hyp1.tex}
+
+Adjusted for age and sex, there was a \num{0.94}-fold reduction in the odds of occupying a high-occupancy brain state for every \num{5.1}-fold increase in WMH load (P \num{5.01e-8}).
+
+\subsubsection{Association between executive function and fractional occupancy in DMN-related states}
+
+The results of the test of our secondary preregistered hypothesis of an association between time spent in high-occupancy brain states and executive function as measured by the complete part B of the TMT are shown in \Cref{fig:hyp2} and \Cref{tab:hyp2}.
+
+\begin{figure}
+    \includegraphics[width=.5\linewidth]{./../analysis/derivatives/Figures/Fig_hyp2.png}
+    \mycaption{Association between time spent in high-occupancy DMN-related brain states and TMT-B completion time}{Point estimates (black line) and 95\%-confidence region (light blue ribbon) of the conditional mean TMT-B completion time are obtained from unadjusted Gamma regression modelling. Each marker represent one of N=1482 independent subjects with non-zero total WMH volume and available TMT-B data.}
+    \label{fig:hyp2}
+\end{figure}
+
+\input{src/tables/table_hyp2.tex}
+
+Adjusted for age, sex, WMH volume, and years of education, there was a \num{0.98}-fold reduction in the time to complete the TMT-B for every \qty{5}{\percent} increase in the time spent in high-occupancy brain states (P \num{0.0116}).
+
+
+\subsection{Multiverse analysis}
+
+In a multiverse analysis, the main findings of associations between WMH load and FO and between FO and TMT-B were robust with respect to the processing choices of brain parcellation and confound regression strategy.
+
+A nominally statistically significant negative association between the total WMH load and time spent in high-occupancy states was observed in 48/81 scenarios, with 8/81 significant positive associations occurring with the Desikan--Killiany parcellation only (\Cref{fig:mv}{A}). 
+For periventricular (deep) WMH volume, the results were similarly robust with 49/81 (39/81) negative and 8/81 (0/81) associations of nominal statistical significance, respectively.
+
+The secondary finding of an association between greater TMT-B times and lower fractional occupancy was somewhat less robust with 16/81 nominally statistically significant negative and no significant positive associations, irrespective of operationalization of cSVD (total vs. periventricular vs. deep WMH volume) (\Cref{fig:mv}{B}).
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/Fig_mv.png}
+    \mycaption{Multiverse analysis}{Adjusted effect size estimates of the associations between cSVD severity (WMH volume) and network dedifferentiation (less time spent in high-occupancy DMN-related brain states) [\textbf{A)}], and between network dedifferentiation and executive function (TMT-B completion time) [\textbf{B)}]. Effect sizes are given per 5.1-fold increase in WMH volume and a 5\%-increase in fractional occupancy, respectively. Markers and line segments indicate point estimates and 95\%-confidence intervals for adjusted odds ratios for different combinations of confound regression strategy and brain parcellation. The primary analytical choices are indicated by dark blue circles (\emph{}36p) and light blue shading (Schaefer-400). Model equations for beta and gamma regressions, respectively, are given at the top. Vertical lines indicate no effect (black) and the effect size observed in the discovery cohort \citep{Schlemm2022-he} (light blue), respectively, for reference. Effect sizes not reaching nominal statistical significance ($\alpha=0.05$) are shown desaturated. Corresponding data based on periventricular and deep WMH volumes are given in the Supplement.} %where can I find supplement?
+    \label{fig:mv}
+\end{figure}
+
+\subsection{Additional analyses}
+\subsubsection{Connectivity profiles of brain states -- relation to default mode network}
+Based on the cosine similarity between positive and negative activations of cluster centroids and indicator vectors of pre-defined large scale brain networks, network activation profiles were computed for brain states estimated Schaefer parcellations of varying spatial resolution.
+
+\Cref{fig:spider} shows the corresponding spider plots, identifying states characterized by activation (DMN+) or suppression (DMN-) of the default mode network as states with the highest fractional occupancy.
+
+\begin{figure}
+    %\begin{subfigure}{1.0\textwidth}
+    \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png}
+    %\caption{Spider400}
+    %\label{fig:spider400}
+    %\end{subfigure}
+    % \begin{subfigure}{1.0\textwidth}
+    % \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/spiderplot_36p~schaefer200x7.png}
+    % \caption{Spider200}
+    % \label{fig:spider200}
+    % \end{subfigure}
+    % \begin{subfigure}{1.0\textwidth}
+    %     \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/spiderplot_36p~schaefer100x7.png}
+    %     \caption{Spider200}
+    %     \label{fig:spider100}
+    %     \end{subfigure}
+    \mycaption{Connectivity profiles of brain states}{Cosine similarity between centroids of each identified brain state and signed indicator vectors corresponding to activation (green) and suppression (red) of each of seven predefined large-scale functional brain networks \citep{Yeo2011-qg}. States are ordered by mean fractional occupancy across N=1651 independent subjects, indicated by parenthetical percentages. Two high-occupancy states are characterized by activation or suppression of the DMN, the remaining three low-occupancy states (S3--5) were not used in the present study. Note that mean FO values are similar, but not identical, to median FO values reported in \Cref{tab:fracocc}.}
+    \label{fig:spider}
+\end{figure}
+
+
+
+\subsubsection{Association with other cognitive domains}
+Associations between the time spent in high-occupancy DMN-related brain states and cognitive measures beyond TMT-B are shown in \Cref{fig:FOvsCOG}.
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{./../analysis/derivatives/Figures/Fig_FOvsCOG.png}
+    \mycaption{Association between time spent in high-occupancy DMN-related brain states and cognitive measures}{Point estimates (black line) and 95\%-confidence region (light blue ribbon) of the conditional mean cognitive measures are obtained from unadjusted binomial (top row: Mini-Mental State Examination, Vocabulary, Word List Recall, logit link) and Gamma regression (bottom row: Animal Naming, Trail Making Test [TMT] A/B: log link) modelling. 
+    
+    Each marker represents one of N independent subjects, as indicated. Insets report effect sizes and P-values both with (adjusted [a-]) and without adjustment for the nuisance variables age, sex, WMH volume (coded as in \Cref{fig:mv}), and years of education. Effect sizes were quantified as odds ratios (ORs) (top) or response scale multipliers [exp(b)] (bottom), and correspond to a 20\%-increase in fractional occupancy. Note the different reference change in FO compared to \Cref{tab:hyp2} chosen to adequately represent some of the smaller effect sizes. The bottom right panel highlighted in dark blue reproduces \Cref{fig:hyp2}.}
+    \label{fig:FOvsCOG}
+\end{figure}
+
+
+Adjusted for age, sex, WMH load, and years of education, FO in DMN-related states appeared to be associated with better word recall (aOR 1.19, nominal P 0.013), but not with global cognitive functioning (MMSE, aOR 1.09) or vocabulary (aOR 1.09), nor with verbal fluency (animal naming, $\exp(\beta)$ 1.04), or pure processing speed (TMT-A, $\exp(\beta)$ 0.97).

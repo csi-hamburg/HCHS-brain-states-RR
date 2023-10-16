@@ -42,10 +42,12 @@
 \newif\if@medrxiv
 \newif\if@arxiv 
 \newif\if@chemrxiv
+\newif\if@PCIRR
 \DeclareOption{biorxiv}{\@biorxivtrue}
 \DeclareOption{medrxiv}{\@medrxivtrue}
 \DeclareOption{arxiv}{\@arxivtrue}
 \DeclareOption{chemrxiv}{\@chemrxivtrue}
+\DeclareOption{PCIRR}{\@PCIRRtrue}
 \newcommand{\ppserver}{Preprint} % Make command for the preprint logo
 \renewcommand{\ppserver}{
   \if@biorxiv
@@ -60,6 +62,9 @@
   \if@chemrxiv
     \textbf{Chem}\textcolor{lightgray}{Rxiv}
   \fi
+  \if@PCIRR
+  PCI Registered Reports
+\fi
 }
 
 %% Colour scheme

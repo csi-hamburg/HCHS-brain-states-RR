@@ -1,9 +1,8 @@
 \renewcommand\cellset{\renewcommand\arraystretch{0.5}%
     \setlength\extrarowheight{0pt}}
 \begin{table}[bt]
-    \scriptsize
     \begin{threeparttable}
-        \begin{subtable}[t]{.525\textwidth}
+        \begin{subtable}[t]{.75\textwidth}
             \label{tab:parcellations2}
             % Use "S" column identifier to align on decimal point 
             \begin{tabularx}{\textwidth}{l l l}
@@ -25,7 +24,7 @@
             \caption{Parcellations}
         \end{subtable}
         \qquad
-        \begin{subtable}[t]{.425\textwidth}
+        \begin{subtable}[t]{.75\textwidth}
             \label{tab:parcellations}
             % Use "S" column identifier to align on decimal point 
             \begin{tabularx}{\textwidth}{l l l}
@@ -50,6 +49,6 @@
         \end{subtable}
         \makeatletter\def\TPT@hsize{}\makeatletter
     \end{threeparttable}
-    \caption{Multiverse analysis, implemented using xcpEngine \citep{ciric2018mitigating}}
+    \mycaption{Multiverse analysis}{Overview over different brain parcellations and confound regression strategies implemented using xcpEngine \citep{ciric2018mitigating}. A total of $9\times 9=81$ analytical combinations were explored to assess the robustness of our results with respect to these processing choices.}
     \label{tab:multiverse}
 \end{table}

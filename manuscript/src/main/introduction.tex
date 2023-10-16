@@ -1,28 +1,28 @@
 \section{Introduction} \label{intro}
-Cerebral small vessel disease (cSVD) is an arteriolopathy of the brain, associated with age and common cardiovascular risk factors \citep{Wardlaw2013-yd}.
-cSVD predisposes to ischemic, in particular lacunar, stroke and may lead to cognitive impairment and dementia \citep{Cannistraro2019-ly}.
-Neuroimaging findings in cSVD reflect its underlying pathology \citep{Wardlaw2015-ri} and include white matter hyperintensities (WMH) and lacunes of presumed vascular origin, small subcortical infarcts and microbleeds, enlarged perivascular spaces as well as brain atrophy \citep{Wardlaw2013-sc}.
-However, the extent of visible cSVD features on magnetic resonance imaging (MRI) is an imperfect predictor of the severity of clinical sequelae \citep{Das2019-pc}, and our understanding of the causal mechanisms linking cSVD-associated brain damage to clinical deficits remains limited \citep{Bos2018-qj}.
+Cerebral small vessel disease (cSVD) is an arteriolopathy of the brain associated with age and common cardiovascular risk factors \citep{Wardlaw2013-yd}.
+cSVD predisposes patients to ischemic stroke (in particular lacunar stroke) and may lead to cognitive impairment and dementia \citep{Cannistraro2019-ly}.
+Neuroimaging findings in cSVD reflect its underlying pathology \citep{Wardlaw2015-ri} and include white matter hyperintensities (WMH), lacunes of presumed vascular origin, small subcortical infarcts and microbleeds, enlarged perivascular spaces as well as brain atrophy \citep{Wardlaw2013-sc}.
+However, the extent of visible cSVD features on magnetic resonance imaging (MRI) is an imperfect predictor of the severity of clinical sequelae \citep{Das2019-pc} and our understanding of the causal mechanisms linking cSVD-associated brain damage to clinical deficits remains limited \citep{Bos2018-qj}.
 
-Recent efforts have concentrated on exploiting network aspects of the structural \citep{Tuladhar2016-ae,Tuladhar2020-fp,Lawrence2018-ti} and functional \citep{Dey2016-qg,Schulz2021-ho} organization of the brain to understand the relation between cSVD and clinical deficits in cognition and other domains reliant on distributed processing.
-Reduced structural network efficiency has repeatedly been described as a causal factor in the development of cognitive impairment, in particular executive dysfunction and reduced processing speed, in cSVD \citep{Lawrence2014-xp,Shen2020-yv,Reijmer2016-wm,Prins2005-ej}.
-Findings with respect to functional connectivity (FC), on the other hand, are more heterogeneous than their SC counterparts, perhaps because FC measurements are prone to be affected by hemodynamic factors and noise, resulting in relatively low reliability, especially with resting-state scans of short duration \citep{laumann2015functional}. 
-This problem is exacerbated in the presence of cSVD and made worse by the arbitrary processing choices \citep{Lawrence2018-sv,Gesierich2020-db}.
+Recent efforts have focused on exploiting network aspects of the structural \citep{Tuladhar2016-ae,Tuladhar2020-fp,Lawrence2018-ti} and functional \citep{Dey2016-qg,Schulz2021-ho} organization of the brain to understand the relationship between cSVD and clinical deficits in cognition and other domains that rely on distributed processing.
+Reduced structural network efficiency has repeatedly been described as a causal factor in the development of cognitive impairment, particularly executive dysfunction and reduced processing speed in cSVD \citep{Lawrence2014-xp,Shen2020-yv,Reijmer2016-wm,Prins2005-ej}.
+Findings with respect to functional connectivity (FC), however, are more heterogeneous than their SC counterparts, perhaps because FC measurements are prone to be affected by hemodynamic factors and noise, resulting in relatively low reliability, especially with resting-state scans of short duration \citep{laumann2015functional}. 
+This problem is exacerbated in the presence of cSVD and worsened by arbitrary processing choices \citep{Lawrence2018-sv,Gesierich2020-db}.
 
-As a promising new avenue, time-varying, or dynamic, functional connectivity approaches have more recently been explored in patients with subcortical ischemic vascular disease \citep{Yin2022-cv,Xu2021-ib}. 
-While the study of dynamic FC measures may not solve the problem of limited reliability, especially in small populations or subjects with extensive structural brain changes, it adds another -- temporal -- dimension to the study of functional brain organisation, which is otherwise overlooked.
-Importantly, FC dynamics do not only reflect moment-to-moment fluctuations in cognitive processes but are also related to brain plasticity and homeostasis \Citep{laumann2021brain, laumann2017stability}, which may be impaired in cSVD.
+As a promising new avenue, time-varying, or dynamic, functional connectivity approaches have recently been explored in patients with subcortical ischemic vascular disease \citep{Yin2022-cv,Xu2021-ib}. 
+Although the study of dynamic FC measures may not solve the problem of limited reliability, especially in small populations or subjects with extensive structural brain changes, it adds another -- temporal -- dimension to the study of functional brain organization, which is otherwise overlooked.
+Importantly, FC dynamics not only reflect moment-to-moment fluctuations in cognitive processes, but are also related to brain plasticity and homeostasis \Citep{laumann2021brain, laumann2017stability}, which may be impaired in cSVD.
 
-In the present paper, we aim to replicate and extend the main results of \citep{Schlemm2022-he};
-in this recent study, the authors analyzed MR imaging and clinical data from the prospective Hamburg City Health Study (HCHS, \citep{Jagodzinski2020-lx}) using a coactivation pattern approach to define discrete brain states, and found associations between the WMH load, time spent in high-occupancy brain states characterized by activation or suppression of the default mode network (DMN) and cognitive impairment. 
-Specifically, every 4.7-fold increase in WMH volume was associated with a 0.95-fold reduction of the odds of occupying a DMN-related brain state; every 2.5 seconds (i.e., one repetition time) not spent in one of those states was associated with a 1.06-fold increase of TMT-B completion times.
+In the present paper, we aimed to replicate and extend the main results of \citep{Schlemm2022-he}.
+In this recent study, the authors analyzed MR imaging and clinical data from the prospective Hamburg City Health Study (HCHS, \citep{Jagodzinski2020-lx}) using a coactivation pattern approach to define discrete brain states and found associations between the WMH load, time spent in high-occupancy brain states characterized by activation or suppression of the default mode network (DMN), and cognitive impairment. 
+Specifically, every 4.7-fold increase in WMH volume was associated with a 0.95-fold reduction in the odds of occupying a DMN-related brain state; every 2.5 seconds (i.e., one repetition time) not spent in one of those states was associated with a 1.06-fold increase in TMT-B completion times.
 
-The fractional occupancy of a functional MRI-derived discrete brain state is a subject-specific measure of brain dynamics defined as the proportion of BOLD volumes assigned to that state relative to all BOLD volumes acquired during a resting-state scan.
+The fractional occupancy of a functional MRI-derived discrete brain state is a subject-specific measure of brain dynamics and is defined as the proportion of BOLD volumes assigned to that state relative to all BOLD volumes acquired during a resting-state scan.
 
-Our primary hypothesis is that the volume of supratentorial white matter hyperintensities is associated with the fractional occupancy of DMN-related brain states in a middle-aged to elderly population mildly affected by cSVD.
-Our secondary hypothesis is that this fractional occupancy is associated with executive dysfunction and reduced processing speed, measured as the time to complete part B of the trail making test (TMT).
+Our primary hypothesis for the present work was that the volume of supratentorial white matter hyperintensities is associated with fractional occupancy of DMN-related brain states in a middle-aged to elderly population mildly affected by cSVD.
+Our secondary hypothesis was that fractional occupancy is associated with executive dysfunction and reduced processing speed, measured as the time to complete part B of the Trail Making Test (TMT).
 
-Both hypotheses will be tested in an independent subsample of the HCHS study population using the same imaging protocols, examination procedures and analysis pipelines as in \citep{Schlemm2022-he}.
-The robustness of associations will be explored in a multiverse approach by varying key steps in the analysis pipeline.
+Both hypotheses were tested in an independent subsample of the HCHS study population using the same imaging protocols, examination procedures, and analysis pipelines as those in \citep{Schlemm2022-he}.
+The robustness of the associations was explored using a multiverse approach by varying key steps in the analysis pipeline.
 
 \input{src/tables/studydesigntemplate.tex}

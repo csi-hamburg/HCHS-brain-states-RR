@@ -7,7 +7,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Declare document class
-\documentclass[12pt,biorxiv,lineno,doublespacing]{lapreprint}
+\documentclass[12pt,PCIRR,lineno,doublespacing,endfloat]{lapreprint}
+
 
 % Import packages
 \usepackage[version=4]{mhchem} % For chemical notation
@@ -21,9 +22,16 @@
 \usepackage{listings}   % For inserting code chunks
 \usepackage{colortbl}   % For Knitr table colouring
 \usepackage{tabularx}   % For making Knitr tables compatible
+\usepackage{tabulary}
 \usepackage{longtable}  % For multi-page tables
 \usepackage{threeparttable}
 \usepackage{subcaption}
+\captionsetup[table]{labelsep=space}
+\captionsetup[figure]{labelsep=space}
+
+
+\newcommand{\mycaption}[2]{\caption[#1]{\textbar\, \textbf{#1.} #2}}
+
 \usepackage{multirow}
 \usepackage{snotez}     % For sidenote environments. enotez for endnotes
 \usepackage{csquotes}   % For language-based quote rules (helps BiBLaTeX)
@@ -31,9 +39,13 @@
 \usepackage{fontenc}
 \usepackage{cleveref}
 \usepackage{makecell}
+\usepackage{rotating}
+\DeclareDelayedFloatFlavor{sidewaystable}{table}
 
+%\usepackage[nomarkers]{endfloat}
 % Make declarations
 \DeclareSIUnit\Molar{M}
+\DeclareSIUnit\year{yr}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% BIBLIOGRAPHY
@@ -46,6 +58,7 @@
 	alldates=year,      % only show year (not month)
 ]{biblatex}
 
+
 % Update to your bibliography file
 \addbibresource{src/references.bib}
 
@@ -54,15 +67,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Paper title
-\title{Functional MRI brain state occupancy in the presence of cerebral small vessel disease -- pre-registration for a replication analysis of the Hamburg City Health Study}
+\title{Functional MRI brain state occupancy in the presence of cerebral small vessel disease -- a pre-registered replication analysis of the Hamburg City Health Study}
 
 % Authors - you can use \orcidlink{} and \authfn{} - see contribution note
+\author[ \orcidlink{0000-0002-8646-9795} 1]{Thies Ingwersen, MD}
+\author[ 1]{Carola Mayer, PhD}
+\author[ 1]{Marvin Petersen, MD}
+\author[ 1]{Benedikt M. Frey, MD}
+\author[ 2]{Jens Fiehler, MD}
+\author[ 2]{Uta Hanning, MD}
+\author[3,4]{Simone K\"uhn, PhD}
+\author[3]{J\"urgen Gallinat, MD}
+\author[5]{Raphael Twerenbold, MD}
+\author[ 6]{Christian Gerloff, MD}
+\author[ \orcidlink{0000-0003-2434-1822} 1]{Bastian Cheng, MD}
+\author[ 1]{G\"otz Thomalla, MD}
 \author[ \orcidlink{0000-0002-5729-2935} 1 \Letter]{Eckhard Schlemm, MBBS PhD}
-\author[ 1]{Thies Ingwersen, MD}
-%\author[ \orcidlink{0000-0003-2434-1822} 1 \authfn{1}]{Bastian Cheng, MD}
 
 % Affiliations
 \affil[1]{Department of Neurology, University Medical Center Hamburg-Eppendorf}
+\affil[2]{Department of Neuroradiology, University Medical Center Hamburg-Eppendorf}
+\affil[3]{Department of Psychiatry, University Medical Center Hamburg-Eppendorf}
+\affil[4]{Max-Planck-Institut für Bildungsforschung, Berlin}
+\affil[5]{Department of Cardiology, University Medical Center Hamburg-Eppendorf}
+\affil[6]{University Medical Center Hamburg-Eppendorf}
 
 % Correspondence
 \correspondence{e.schlemm@uke.de}{}
@@ -75,14 +103,13 @@
 
 % Data availability statement, funding and competing interests.
 \data[]{Preprocessed data will be available e.g. on \href{https://github.com/csi-hamburg/HCHS-brain-states-RR}{https://github.com/csi-hamburg/HCHS-brain-states-RR}.}
-\funding[]{Deutsche Forschungsgemeinschaft (DFG) -- 178316478 -- C2}
-\compint[]{The author declares no competing interests.}
+\funding[]{{Deutsche Forschungsgemeinschaft (DFG) -- SFB 936, 178316478 -- C2 (Drs Thomalla \& Cheng)}}
+\compint[]{The authors declare no competing interests.}
 
 
 % Surname of the lead author(s) for the running footer
-\leadauthor{Eckhard Schlemm}
+\leadauthor{Ingwersen}
 \shorttitle{Brain states in cSVD - a functional MRI replication substudy of the HCHS}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE START
@@ -95,6 +122,7 @@
 \input{src/main/introduction}
 \input{src/main/methods}
 \input{src/main/results}
+\input{src/main/discussion.tex}
 \input{src/main/formal}
 \printbibliography
 
@@ -109,18 +137,20 @@
 % \begin{appendix}
 
 % \begin{appendixbox}\label{app:ttt}
-%     \input{src/supplementary/appendices.tex}
+%     \input{src/tables/studydesigntemplate.tex}
 % \end{appendixbox}
 
 % \begin{appendixbox}
-%     \input{src/supplementary/resources.tex}
+%     \input{src/tables/parcellations.tex}
 % \end{appendixbox}
 
 % \end{appendix}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{figure}{0}
+\setcounter{postfigure}{0}
 
 \end{document}

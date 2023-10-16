@@ -1,5 +1,5 @@
 ---
-title: "Functional MRI brain state occupancy in the presence of cerebral small vessel disease – Statistical analysis pipeline for a pre-registered multiverse replication analysis of the Hamburg City Health Study"
+title: "Functional MRI brain state occupancy in the presence of cerebral small vessel disease – Statistical analysis pipeline for a pre-registered replication analysis of the Hamburg City Health Study"
 author: "Eckhard Schlemm"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
@@ -8,19 +8,19 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-In this repository we present the statistical analysis pipeline for a proposed replication of the main effects reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019). For illustration, we will use the pipeline to re-analyse data from the first 1000 imaging subjects of the Hamburg City Health Study (HCHS), while the replication analysis will be based on an independent sample of approximately 1500 HCHS subjects.
+In this repository we present the statistical analysis pipeline for a replication of the main effects reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019). The replication analysis is based on an independent sample of approximately 1500 HCHS subjects.
 
 # MRI data preprocessing,  white matter lesion segmentation and covariates
-We assume that structural and functional MR imaging data have been quality assessed and processed using FreeSurfer, sMRIprep, and fMRIprep. We also assume that [xcpEngine](https://github.com/PennLINC/xcpEngine) output is available as
+Structural and functional MR imaging data have been quality assessed and processed using FreeSurfer, sMRIprep, and fMRIprep. [xcpEngine](https://github.com/PennLINC/xcpEngine) output is available as
 
 `
 ./derivatives/xcpengine/{design}/sub-{subjectID}/fcon/{atlas}/sub-{subjectID}_{atlas}_ts.1D
 `
 
-In [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019), we used the '36p' confound regression strategy and the 'schaefer400' atlas. In the following multiverse analysis, we will use additional regression strategies and brain parcellations, namely
+In [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019), we used the '36p' confound regression strategy and the 'schaefer400' atlas. In the following multiverse analysis, we used additional regression strategies and brain parcellations, namely
 
 `
 24p, 24p_gsr, 36p_spkreg, 36p_despike, 36p_scrub, aCompCor, tCompCpr, aroma
@@ -32,12 +32,12 @@ and
 Desikan-Killiany, AAL-116, Harvard-Oxford, Power-264, Gordon-333, Glasser-360, Schaefer-100, Schaefer-200
 `
 
-We will further assume that white matter hyperintensity volumes (total, deep and periventricular) are available in [derivatives/WMH/cSVD.csv](./../../../derivatives/WMH/cSVD.csv).
+White matter hyperintensity volumes (total, deep and periventricular) are available in [derivatives/WMH/cSVD.csv](./../../../derivatives/WMH/cSVD_all.csv).
 
-Covariates age, gender and years of education are imported from [input/hchs.csv](./../../../input/hchs.csv).
+Covariates age, gender and years of education are imported from [input/hchs.csv](./../../../input/hchs_batch2.csv).
 
 # Brain state estimation
-k=5 discrete brain states are estimated by clustering BOLD-signals in brain activation space. We use the `kmeans` algorithm implemented in Matlab with the Pearson correlation as distance measure. The relevant code is given in [analysis/code/Matlab/clustering.m](./../Matlab/clustering.m). The script produces subject-specific estimates of fractional occupancies of five brain states, ordered by average fractional occupancy. These are saved as
+k=5 discrete brain states were estimated by clustering BOLD-signals in brain activation space. We use the `kmeans` algorithm implemented in Matlab with the Pearson correlation as distance measure. The relevant code is given in [analysis/code/Matlab/clustering.m](./../Matlab/clustering.m). The script produces subject-specific estimates of fractional occupancies of five brain states, ordered by average fractional occupancy. These are saved as
 
 `
 ./analysis/derivatives/data/dFCmetrics~{design}~{atlas}~.dat
@@ -47,7 +47,7 @@ k=5 discrete brain states are estimated by clustering BOLD-signals in brain acti
 
 ## Data import and preprocessing
 
-```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE, cache=FALSE}
+```{r echo=TRUE, paged.print=TRUE, cache=FALSE}
 source('.Rprofile', chdir = TRUE)
 #source('prepdata.r')
 load('data.Rdata')
@@ -56,27 +56,27 @@ load('data.Rdata')
 
 ## Check for separation between high- and low occupancy states
 
-We use paired t-tests to compare average fractional occupancy in the two high-occupancy states with the average occupancy in the three low-occupancy states.
-```{r highVSlowFO, echo=TRUE, message=FALSE, warning=FALSE, file='highVSlowFO.r', paged.print=FALSE}
+We used paired t-tests to compare average fractional occupancy in the two high-occupancy states with the average occupancy in the three low-occupancy states.
+```{r highVSlowFO, echo=TRUE, file='highVSlowFO.r', paged.print=FALSE}
 ```
-```{r  highVSlowFOplot, echo=TRUE, fig.height=5, fig.width=6, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=600}
+```{r  highVSlowFOplot, echo=TRUE, fig.height=5, fig.width=6, paged.print=FALSE, dpi=600}
 p.forest.tt <- forestplot(d.tt)
 p.forest.tt + theme(legend.position = 'bottom', legend.title = element_blank())
 ```
 
-Point estimates and 95% confidence intervals for the mean in fractional occupancy between high- and low occupancy states are shown for different confound regression strategies and brain parcellations. The primary choices ('36p' and 'schaefer400') are highlighted by a yellow box and thick pink line, respectively. The effect size reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019) is indicated by a vertical line at 0.08830623.
+Point estimates and 95% confidence intervals for the mean in fractional occupancy between high- and low occupancy states are shown for different confound regression strategies and brain parcellations. The primary choices ('36p' and 'schaefer400') are highlighted by a light blue box and dark blue markers, respectively. The effect size reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019) is indicated by a vertical line at 0.08830623.
 
 ## Association between WMH volume and fractional occupancy
-Here, we perform a fixed-dispersion beta-regression between WMH lesion load and average fractional occupancy in the two high-occupancy states. WMH volume is log-transformed, with the base of the log given by the interquartile ratio of the non-zero WMH volumes. Zero WMH volume are recoded as zero after the log-transformation and a zero-indicator (`yzero`) is included in the regression model. Other covariates are age and sex. Estimates are transformed into 'odds ratios' using the exponential function.
+Next, we performed a fixed-dispersion beta-regression between WMH lesion load and average fractional occupancy in the two high-occupancy states. WMH volume was log-transformed, with the base of the log given by the interquartile ratio of the non-zero WMH volumes. Zero WMH volume were recoded as zero after the log-transformation and a zero-indicator (`yzero`) was included in the regression model. Other covariates were age and sex. Estimates were transformed into 'odds ratios' using the exponential function.
 
-```{r regWMHcsFO, echo=TRUE, message=FALSE, warning=FALSE, file='regWMHvsFO.r', paged.print=FALSE}
-
-```
-
-```{r regWMHvsFOplot-prep, echo=TRUE, message=FALSE, warning=FALSE, file='regWMHvsFOplot.r', paged.print=FALSE}
+```{r regWMHcsFO, file='regWMHvsFO.r', paged.print=FALSE}
 
 ```
-```{r regWMHvsFOplot, echo=TRUE, fig.height=8, fig.width=12, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=600}
+
+```{r regWMHvsFOplot-prep, file='regWMHvsFOplot.r', paged.print=FALSE}
+
+```
+```{r regWMHvsFOplot, fig.height=8, fig.width=12, paged.print=FALSE, dpi=600}
 p.panel.beta$plt[[1]] + p.forest.beta$plt[[1]] +  plot_layout(widths = c(2, 1)) & guides(color = 'none', size = 'none') & 
   theme(axis.title = element_text(size = 8), axis.text = element_text(size = 6), strip.text = element_text(size = 6))
 ```
@@ -84,13 +84,13 @@ p.panel.beta$plt[[1]] + p.forest.beta$plt[[1]] +  plot_layout(widths = c(2, 1)) 
 On the left, we show scatter plots of average FO in high-occupancy states against WMH volume on a logarithmic scale (base 10 for easier visualization) for different combinations of confound regression strategies and brain parcellations. Linear regression lines are visually indistinguishable from beta regression lines and indicate the direction of the unadjusted association between  log(WMH) and FO. Background color of individual panels indicates the direction of the association after adjustment for age, sex and zero WMH volume (green, negative; red, positive). A pale background indicates that the association between log(WMH) and average fractional occupancy is not statistically different from zero. On the right, the same information is shown using point estimates and 95% confidence intervals for the adjusted odds ratio of the association. The effect size reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019) is indicated by a vertical line at 0.9486211.
 
 ## Association between fractional occupancy and executive function
-For this secondary hypothesis, we perform a Poisson regression between average occupancy in the two high-occupancy states and TMT-B scores. WMH volume is included as a covariate and transformed in the same way as before. Other covariates are age, sex and years of education.
+For this secondary hypothesis, we performed a Poisson regression between average occupancy in the two high-occupancy states and TMT-B scores. WMH volume was included as a covariate and transformed in the same way as before. Other covariates were age, sex and years of education.
 
-```{r regFOvsTMT, echo=TRUE, message=FALSE, warning=FALSE, file='regFOvsTMT.r', paged.print=FALSE, cache=TRUE}
+```{r regFOvsTMT, file='regFOvsTMT.r', paged.print=FALSE, cache=TRUE}
 
 ```
 
-```{r regFOvsTMTplot-prep, echo=TRUE, message=FALSE, warning=FALSE, file='regFOvsTMTplot.r', paged.print=FALSE, cache=TRUE}
+```{r regFOvsTMTplot-prep, file='regFOvsTMTplot.r', paged.print=FALSE, cache=TRUE}
 
 ```
 ```{r regFOvsTMTplot, echo=TRUE, fig.height=8, fig.width=12, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=600}
@@ -98,21 +98,13 @@ p.panel.gamma$plt[[1]] + p.forest.gamma$plt[[1]] +  plot_layout(widths = c(2, 1)
   theme(axis.title = element_text(size = 8), axis.text = element_text(size = 6), strip.text = element_text(size = 6))
 ```
 
-# Power calculation
-We estimate the power to detect, at a significance level of 0.05, the main effect of the primary hypothesis (OR = 0.95) for different sample sizes. We use a bootstrap approach based on the previously published pilot data analysed here.
-
-```{r power, echo=TRUE, message=FALSE, warning=FALSE, dpi=600, file='power.r', paged.print=FALSE, cache=TRUE}
-
-```
-
-
 
 ## Alternative operationalizations of cSVD severity
 
 ### Association between WMH volume and fractional occupancy
 
-Here, we will present results for deep and periventricular white matter lesion volume.
-```{r regWMHvsFOplot-sens, echo=TRUE, fig.height=8, fig.width=12, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=600}
+Here, we present results for deep and periventricular white matter lesion volume.
+```{r regWMHvsFOplot-sens, fig.height=8, fig.width=12, paged.print=FALSE, dpi=600}
 p.panel.beta$plt[[2]] + p.forest.beta$plt[[2]] +  plot_layout(widths = c(2, 1)) & guides(color = 'none', size = 'none') & 
   theme(axis.title = element_text(size = 8), axis.text = element_text(size = 6), strip.text = element_text(size = 6))
 
@@ -122,7 +114,7 @@ p.panel.beta$plt[[3]] + p.forest.beta$plt[[3]] +  plot_layout(widths = c(2, 1)) 
 
 ### Association between fractional occupancy and executive function
 
-```{r regFOvsTMTplot-sens, echo=TRUE, fig.height=8, fig.width=12, message=FALSE, warning=FALSE, paged.print=FALSE, dpi=600}
+```{r regFOvsTMTplot-sens, fig.height=8, fig.width=12, paged.print=FALSE, dpi=600}
 p.panel.gamma$plt[[2]] + p.forest.gamma$plt[[2]] +  plot_layout(widths = c(2, 1)) & guides(color = 'none', size = 'none') & 
   theme(axis.title = element_text(size = 8), axis.text = element_text(size = 6), strip.text = element_text(size = 6))
 

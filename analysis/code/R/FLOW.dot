@@ -1,0 +1,77 @@
+digraph D {
+  node [shape="box"]
+  //splines = ortho
+  m1 [label = "Available HCHS data (n=2648)"]
+  subgraph g1 {
+    rank = same
+    n1 [shape = point, width = 0.01, height = 0.01, fillcolor = black, color = black]
+    e1 [label = "Previously analysed (n=970)"]
+  }
+  m2 [label = "Unseen participants (n=1678)"]
+  subgraph g2 {
+    rank = same
+    n2 [shape = point, width = 0.01]
+    e2 [label = "Sequences missing\l -T1 missing (n=10)\l -FLAIR missing (n=8)\l -BOLD missing (n=4)\l"]
+  }
+  m3 [label = "Complete imaging (n=1665)"]
+  subgraph TUMOR {
+    rank = same
+    nTUMOR [shape = point, width = 0.01]
+    eTUMOR [label = "Intra-axial space-occupying lesion (n=5)"]
+  }
+  mTUMOR [label = "Study population (n=1660)"]
+  
+  subgraph PREPROC {
+    rank = same
+    nPREPROC [shape = point, width = 0.01]
+    ePREPROC [label = "General preprocessing failed (n=2)"]
+  }
+  mPREPROC [label = "Preprocessing succesfull (n=1658)"]
+  
+  //n3 [shape = point, width = 0.01]
+  subgraph g3 {
+    rank = same
+    e3a [label = "WMH segmentation failed (n=6)"]
+    n3a [shape = point, width = 0.01]
+    n3b [shape = point, width = 0.01]
+    e3b [label = "xcpEngine failed (n=1)"]
+  }
+  subgraph g4 {
+    rank = same
+    m4a [label = "WMH volumes available (n=1652)"]
+    m4b [label = "Deconfounded FC available (n=1657)"]
+  }
+  
+  mFINAL [label = "Study sample (n=1651)", style = "filled, dashed", penwidth = 3, fillcolor = steelblue2, color = steelblue4]
+  
+  m1 -> n1 [dir = none]
+  n1 -> e1
+  n1 -> m2
+  m2 -> n2 [dir = none]
+  n2 -> e2
+  n2 -> m3
+  
+  m3 -> nTUMOR [dir = none]
+  nTUMOR -> eTUMOR
+  nTUMOR -> mTUMOR
+  
+  mTUMOR -> nPREPROC [dir = none]
+  nPREPROC -> ePREPROC
+  nPREPROC -> mPREPROC
+  
+  //mPREPROC -> n3 [dir = none]
+  mPREPROC:s -> n3a [dir = none]
+  mPREPROC:s -> n3b [dir = none]
+  //n3 -> n3a [dir = none]
+  e3a:e -> n3a:w [dir = back]
+  //n3 -> n3b [dir = none]
+  n3b -> e3b
+  
+  e3a -> n3a -> n3b -> e3b [style = invisible, dir = none]
+  
+  n3a -> m4a
+  n3b -> m4b
+  
+  m4a -> mFINAL
+  m4b -> mFINAL
+}

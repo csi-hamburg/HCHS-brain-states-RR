@@ -2444,6 +2444,56 @@
       \field{pages}{e1898\bibrangedash e1910}
       \range{pages}{-1}
     \endentry
+    \entry{lydon2019evaluation}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=bae735cf72803e92b2ecc1ab64fa030d}{%
+           family={Lydon-Staley},
+           familyi={L\bibinithyphendelim S\bibinitperiod},
+           given={David\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65fe66338785b06da587c4b83512be0c}{%
+           family={Ciric},
+           familyi={C\bibinitperiod},
+           given={Rastko},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31908c78eb667d22e4929589c376a1f0}{%
+           family={Satterthwaite},
+           familyi={S\bibinitperiod},
+           given={Theodore\bibnamedelima D},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d87b8c7b8165fcf3bd849f3cd4e0dfcc}{%
+           family={Bassett},
+           familyi={B\bibinitperiod},
+           given={Danielle\bibnamedelima S},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press One Rogers Street, Cambridge, MA 02142-1209, USA journals-info~…}%
+      }
+      \strng{namehash}{99428b0cff5c750778b52e6b1fdbdff2}
+      \strng{fullhash}{18a7084a0fa2f5e2597ee189a556e53d}
+      \strng{bibnamehash}{99428b0cff5c750778b52e6b1fdbdff2}
+      \strng{authorbibnamehash}{99428b0cff5c750778b52e6b1fdbdff2}
+      \strng{authornamehash}{99428b0cff5c750778b52e6b1fdbdff2}
+      \strng{authorfullhash}{18a7084a0fa2f5e2597ee189a556e53d}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Network Neuroscience}
+      \field{number}{2}
+      \field{title}{Evaluation of confound regression strategies for the mitigation of micromovement artifact in studies of dynamic resting-state functional connectivity and multilayer network modularity}
+      \field{volume}{3}
+      \field{year}{2019}
+      \field{pages}{427\bibrangedash 454}
+      \range{pages}{28}
+    \endentry
     \entry{macey2004method}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=8c76d7e85d65f132416f81211f4ff8fa}{%

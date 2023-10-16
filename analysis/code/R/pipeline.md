@@ -1,7 +1,7 @@
 ---
-title: "Functional MRI brain state occupancy in the presence of cerebral small vessel disease – Statistical analysis pipeline for a pre-registered multiverse replication analysis of the Hamburg City Health Study"
+title: "Functional MRI brain state occupancy in the presence of cerebral small vessel disease – Statistical analysis pipeline for a pre-registered replication analysis of the Hamburg City Health Study"
 author: "Eckhard Schlemm"
-date: "19 November, 2022"
+date: "16 Oktober, 2023"
 output: 
   html_document:
     keep_md: true
@@ -9,16 +9,16 @@ output:
 
 
 
-In this repository we present the statistical analysis pipeline for a proposed replication of the main effects reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019). For illustration, we will use the pipeline to re-analyse data from the first 1000 imaging subjects of the Hamburg City Health Study (HCHS), while the replication analysis will be based on an independent sample of approximately 1500 HCHS subjects.
+In this repository we present the statistical analysis pipeline for a replication of the main effects reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019). The replication analysis is based on an independent sample of approximately 1500 HCHS subjects.
 
 # MRI data preprocessing,  white matter lesion segmentation and covariates
-We assume that structural and functional MR imaging data have been quality assessed and processed using FreeSurfer, sMRIprep, and fMRIprep. We also assume that [xcpEngine](https://github.com/PennLINC/xcpEngine) output is available as
+Structural and functional MR imaging data have been quality assessed and processed using FreeSurfer, sMRIprep, and fMRIprep. [xcpEngine](https://github.com/PennLINC/xcpEngine) output is available as
 
 `
 ./derivatives/xcpengine/{design}/sub-{subjectID}/fcon/{atlas}/sub-{subjectID}_{atlas}_ts.1D
 `
 
-In [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019), we used the '36p' confound regression strategy and the 'schaefer400' atlas. In the following multiverse analysis, we will use additional regression strategies and brain parcellations, namely
+In [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019), we used the '36p' confound regression strategy and the 'schaefer400' atlas. In the following multiverse analysis, we used additional regression strategies and brain parcellations, namely
 
 `
 24p, 24p_gsr, 36p_spkreg, 36p_despike, 36p_scrub, aCompCor, tCompCpr, aroma
@@ -30,12 +30,12 @@ and
 Desikan-Killiany, AAL-116, Harvard-Oxford, Power-264, Gordon-333, Glasser-360, Schaefer-100, Schaefer-200
 `
 
-We will further assume that white matter hyperintensity volumes (total, deep and periventricular) are available in [derivatives/WMH/cSVD.csv](./../../../derivatives/WMH/cSVD.csv).
+White matter hyperintensity volumes (total, deep and periventricular) are available in [derivatives/WMH/cSVD.csv](./../../../derivatives/WMH/cSVD_all.csv).
 
-Covariates age, gender and years of education are imported from [input/hchs.csv](./../../../input/hchs.csv).
+Covariates age, gender and years of education are imported from [input/hchs.csv](./../../../input/hchs_batch2.csv).
 
 # Brain state estimation
-k=5 discrete brain states are estimated by clustering BOLD-signals in brain activation space. We use the `kmeans` algorithm implemented in Matlab with the Pearson correlation as distance measure. The relevant code is given in [analysis/code/Matlab/clustering.m](./../Matlab/clustering.m). The script produces subject-specific estimates of fractional occupancies of five brain states, ordered by average fractional occupancy. These are saved as
+k=5 discrete brain states were estimated by clustering BOLD-signals in brain activation space. We use the `kmeans` algorithm implemented in Matlab with the Pearson correlation as distance measure. The relevant code is given in [analysis/code/Matlab/clustering.m](./../Matlab/clustering.m). The script produces subject-specific estimates of fractional occupancies of five brain states, ordered by average fractional occupancy. These are saved as
 
 `
 ./analysis/derivatives/data/dFCmetrics~{design}~{atlas}~.dat
@@ -55,7 +55,7 @@ load('data.Rdata')
 
 ## Check for separation between high- and low occupancy states
 
-We use paired t-tests to compare average fractional occupancy in the two high-occupancy states with the average occupancy in the three low-occupancy states.
+We used paired t-tests to compare average fractional occupancy in the two high-occupancy states with the average occupancy in the three low-occupancy states.
 
 ```r
 d.tt <- d.dFC %>% 
@@ -75,26 +75,29 @@ p.forest.tt + theme(legend.position = 'bottom', legend.title = element_blank())
 
 ![](pipeline_files/figure-html/highVSlowFOplot-1.png)<!-- -->
 
-Point estimates and 95% confidence intervals for the mean in fractional occupancy between high- and low occupancy states are shown for different confound regression strategies and brain parcellations. The primary choices ('36p' and 'schaefer400') are highlighted by a yellow box and thick pink line, respectively. The effect size reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019) is indicated by a vertical line at 0.08830623.
+Point estimates and 95% confidence intervals for the mean in fractional occupancy between high- and low occupancy states are shown for different confound regression strategies and brain parcellations. The primary choices ('36p' and 'schaefer400') are highlighted by a light blue box and dark blue markers, respectively. The effect size reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019) is indicated by a vertical line at 0.08830623.
 
 ## Association between WMH volume and fractional occupancy
-Here, we perform a fixed-dispersion beta-regression between WMH lesion load and average fractional occupancy in the two high-occupancy states. WMH volume is log-transformed, with the base of the log given by the interquartile ratio of the non-zero WMH volumes. Zero WMH volume are recoded as zero after the log-transformation and a zero-indicator (`yzero`) is included in the regression model. Other covariates are age and sex. Estimates are transformed into 'odds ratios' using the exponential function.
+Next, we performed a fixed-dispersion beta-regression between WMH lesion load and average fractional occupancy in the two high-occupancy states. WMH volume was log-transformed, with the base of the log given by the interquartile ratio of the non-zero WMH volumes. Zero WMH volume were recoded as zero after the log-transformation and a zero-indicator (`yzero`) was included in the regression model. Other covariates were age and sex. Estimates were transformed into 'odds ratios' using the exponential function.
 
 
 ```r
-f <- 'FO.high ~ cSVDtrans + age + sex'
+f <- 'FO.high ~ cSVDtrans + I(age/10) + sex'
 
-m.FO <- d.dFC %>% 
+m.preFO <- d.dFC %>% 
     dplyr::filter(FO.high > 0) %>%
-    inner_join(d.struct) %>% 
-    inner_join(d.clinical) %>% 
+    inner_join(d.struct, relationship = 'many-to-many') %>% 
+    inner_join(d.clinical, relationship = 'many-to-many') %>% 
+    #inner_join(dd.motion) %>% 
     group_by(design, atlas, cSVDmeas) %>% 
     nest() %>% 
-    mutate(f = map(data, ~if_else(all(.$yzero==0), f, paste(f, 'yzero', sep = '+'))) ## use mixture model only when they are zero values in the cSVD measure
-           , mdl = map2(data, f, ~betareg(formula = as.formula(..2), data = ..1, link = 'logit', link.phi = 'log'))
+    mutate(ff = map(data, ~if_else(all(.$yzero==0), f, paste(f, 'yzero', sep = '+'))) ## use mixture model only when they are zero values in the cSVD measure
+           , mdl = map2(data, ff, ~betareg(formula = as.formula(..2), data = ..1, link = 'logit', link.phi = 'log', type = "BC"))
            , tidy = map(mdl, ~tidy(., conf.int = TRUE))
            , n = map(data, nrow)
-           ) %>%
+           )
+
+m.FO <- m.preFO %>% 
   unnest(cols = c(tidy, n)) %>% 
   mutate(across(c(estimate, starts_with('conf')), exp)) 
 ```
@@ -106,11 +109,11 @@ p.forest.beta <- m.FO %>%
   group_by(cSVDmeas) %>% 
   nest() %>% 
   mutate(plt = map(data, ~forestplot(df = dplyr::filter(., term == 'cSVDtrans')
-                            , breaks.x = c(.9, 1, 1.1), limits.x = c(.8, 1.2)
-                            , breaks.y = NULL
-                            , axis.title.y = ''
+                            , breaks.x = c(.9, 1, 1.1), limits.x = c(.85, 1.1)
+                            , breaks.y = atlas_keys
+                            , axis.title.y = 'Brain parcellation'
                             , effect.null = 1, effect.pilot = 0.9486211
-                            , estimate = 'Adjusted odds ratio')
+                            , estimate = 'Association of FO with WMH \n(adjusted odds ratio)')
                 ))
 
 
@@ -134,16 +137,16 @@ p.panel.beta$plt[[1]] + p.forest.beta$plt[[1]] +  plot_layout(widths = c(2, 1)) 
 On the left, we show scatter plots of average FO in high-occupancy states against WMH volume on a logarithmic scale (base 10 for easier visualization) for different combinations of confound regression strategies and brain parcellations. Linear regression lines are visually indistinguishable from beta regression lines and indicate the direction of the unadjusted association between  log(WMH) and FO. Background color of individual panels indicates the direction of the association after adjustment for age, sex and zero WMH volume (green, negative; red, positive). A pale background indicates that the association between log(WMH) and average fractional occupancy is not statistically different from zero. On the right, the same information is shown using point estimates and 95% confidence intervals for the adjusted odds ratio of the association. The effect size reported in [Schlemm et al, 2022](https://doi.org/10.1016/j.biopsych.2022.03.019) is indicated by a vertical line at 0.9486211.
 
 ## Association between fractional occupancy and executive function
-For this secondary hypothesis, we perform a Poisson regression between average occupancy in the two high-occupancy states and TMT-B scores. WMH volume is included as a covariate and transformed in the same way as before. Other covariates are age, sex and years of education.
+For this secondary hypothesis, we performed a Poisson regression between average occupancy in the two high-occupancy states and TMT-B scores. WMH volume was included as a covariate and transformed in the same way as before. Other covariates were age, sex and years of education.
 
 
 ```r
-f <- 'TMTB ~ FO.high + cSVDtrans + age + sex + educationyears'
+f <- 'TMTB ~ I(20*FO.high) + cSVDtrans + I(age/10) + sex + educationyears'
 
-m.TMT <- d.dFC %>% 
+m.preTMT <- d.dFC %>% 
   dplyr::filter(FO.high > 0) %>%
-  inner_join(d.struct) %>% 
-  inner_join(d.clinical) %>% 
+  inner_join(d.struct, relationship = 'many-to-many') %>% 
+  inner_join(d.clinical, relationship = 'many-to-many') %>% 
   group_by(design, atlas, cSVDmeas) %>% 
   dplyr::filter(TMTB > 0, educationyears > 0) %>% 
   nest() %>% 
@@ -151,7 +154,9 @@ m.TMT <- d.dFC %>%
          , mdl = map2(data, f, ~glm(formula = as.formula(..2), data = ..1, family = Gamma(link = 'log')))
          , tidy = map(mdl, ~tidy(., exponentiate = TRUE, conf.int = TRUE))
          , n = map(data, nrow)
-  ) %>%
+  ) 
+
+m.TMT <- m.preTMT %>%
   unnest(cols = c(tidy, n))
 ```
 
@@ -161,14 +166,13 @@ p.forest.gamma <- m.TMT %>%
   ungroup() %>% 
   group_by(cSVDmeas) %>% 
   nest() %>% 
-  mutate(plt = map(data, ~forestplot(df = dplyr::filter(., term == 'FO.high')
-                                     , breaks.x = c(.8, 1, 1.2), limits.x = c(0, 2)
-                                     , breaks.y = NULL
+  mutate(plt = map(data, ~forestplot(df = dplyr::filter(., term == 'I(20 * FO.high)')
+                                     , breaks.x = c(.92, .96, 1, 1.06), limits.x = c(0.89, 1.05)
+                                     , breaks.y = ''
                                      , axis.title.y = ''
-                                     , effect.null = 1, effect.pilot = 0.735124
-                                     , estimate = 'Adjusted odds ratio')
+                                     , effect.null = 1, effect.pilot = exp(log(0.735124)/20)
+                                     , estimate = 'Association of TMT-B with FO \n(adjusted odds ratio)')
   ))
-
 
 p.panel.gamma <- d.dFC %>% 
   inner_join(d.struct) %>%
@@ -177,7 +181,7 @@ p.panel.gamma <- d.dFC %>%
   group_by(cSVDmeas) %>% 
   nest() %>% 
   mutate(plt = map2(data, cSVDmeas, ~panelplot(df = ..1
-                                               , df.stats = m.TMT %>% dplyr::filter(cSVDmeas == ..2, term == 'FO.high')
+                                               , df.stats = m.TMT %>% dplyr::filter(cSVDmeas == ..2, term == 'I(20 * FO.high)')
                                                , x = FO.high, y = TMTB
                                                , cSVDmeas = ..2
                                                , axis.title.x = 'Average occupancy in high-occupancy states'
@@ -194,96 +198,12 @@ p.panel.gamma$plt[[1]] + p.forest.gamma$plt[[1]] +  plot_layout(widths = c(2, 1)
 
 ![](pipeline_files/figure-html/regFOvsTMTplot-1.png)<!-- -->
 
-# Power calculation
-We estimate the power to detect, at a significance level of 0.05, the main effect of the primary hypothesis (OR = 0.95) for different sample sizes. We use a bootstrap approach based on the previously published pilot data analysed here.
-
-
-```r
-data <- d.dFC %>% dplyr::filter(design=='36p', atlas=='schaefer400x7')
-
-sample.sizes <- c(nrow(data), 1500, seq(200,1600,200), seq(900,1100,10)) %>% sort() %>% unique()
-sample.sizes
-```
-
-```
-##  [1]  200  400  600  800  900  910  920  930  940  950  960  970  980  988  990
-## [16] 1000 1010 1020 1030 1040 1050 1060 1070 1080 1090 1100 1200 1400 1500 1600
-```
-
-```r
-p <- function(data, i = 1:nrow(data)){
-  lapply(sample.sizes, function(n){
-    dd <- data %>% 
-    inner_join(d.struct %>% dplyr::filter(cSVDmeas == 'WMHsmooth'), by = 'ID') %>% 
-    inner_join(d.clinical, by = 'ID') %>% 
-    slice_sample(., n = n, replace = TRUE)
-    
-    f <- 'FO.high ~ cSVDtrans + age + sex'
-    f <- if_else(all(dd$yzero==0), f, paste(f, 'yzero', sep = '+'))
-    
-    betareg(as.formula(f), data = dd, link = 'logit', link.phi = 'log') %>% 
-      tidy(., conf.int = TRUE) %>%
-      mutate(across(c(estimate, starts_with('conf')), exp)) %>% 
-      dplyr::filter(component == 'mean' & term == 'cSVDtrans') %>% 
-      pull(p.value)
-  }) %>% unlist() %>% setNames(sample.sizes)
-}
-
-p.out <- lapply(1:10000, function(k)p(data)) %>% 
-  bind_rows() %>% 
-  pivot_longer(cols = everything(), names_to = 'n', values_to = 'power') %>% 
-  mutate(n = as.numeric(n)) %>%
-  group_by(n) %>% 
-  summarise(across(.cols = everything(), .fns = list(m = ~mean(. < 0.05), se = ~sd(. < 0.05)/sqrt(n()))))
-
-n.80 <- p.out %>% dplyr::filter(power_m >= 0.80) %>% arrange(n) %>% slice_head() %>% pull(n)
-
-
-p.out %>% 
-  ggplot(aes(x = n, y = power_m)) +
-  geom_line(size = 0.1) +
-  geom_segment(data = ~dplyr::filter(., n %in% c(n.80, nrow(data), 1500)), aes(xend = n), yend = 0, color = 'orange') +
-  geom_segment(data = ~dplyr::filter(., n %in% c(n.80, nrow(data), 1500)), aes(yend = power_m), xend = 0, color = 'orange') +
-  geom_point(data = ~dplyr::filter(., n %in% c(n.80, nrow(data), 1500)), shape = 21, size = 5, color = 'orange', fill = 'yellow', stroke = 2) +
-  geom_point(data = ~dplyr::filter(., ! n %in% c(n.80, nrow(data), 1500)), shape = 21, size = 2, color = 'black', fill = 'white', stroke = 1) +
-  geom_smooth(method = 'loess', se = FALSE, color = 'darkblue') +
-  scale_x_continuous(name = 'Sample size') +
-  scale_y_continuous(name = 'Estimated power') +
-  theme_bw() +
-  theme(axis.text = element_text(size = 12)
-        , axis.title = element_text(size = 16))
-```
-
-![](pipeline_files/figure-html/power-1.png)<!-- -->
-
-```r
-n.80
-```
-
-```
-## [1] 960
-```
-
-```r
-p.out %>% dplyr::filter(., n %in% c(n.80, nrow(data), 1500))
-```
-
-```
-## # A tibble: 3 × 3
-##       n power_m power_se
-##   <dbl>   <dbl>    <dbl>
-## 1   960   0.802  0.00398
-## 2   988   0.813  0.00390
-## 3  1500   0.939  0.00240
-```
-
-
 
 ## Alternative operationalizations of cSVD severity
 
 ### Association between WMH volume and fractional occupancy
 
-Here, we will present results for deep and periventricular white matter lesion volume.
+Here, we present results for deep and periventricular white matter lesion volume.
 
 ```r
 p.panel.beta$plt[[2]] + p.forest.beta$plt[[2]] +  plot_layout(widths = c(2, 1)) & guides(color = 'none', size = 'none') & 
@@ -343,35 +263,41 @@ sessionInfo()
 ## [1] stats     graphics  grDevices datasets  utils     methods   base     
 ## 
 ## other attached packages:
-##  [1] patchwork_1.1.2 broom_1.0.1     betareg_3.1-4   forcats_0.5.2  
-##  [5] stringr_1.4.1   dplyr_1.0.10    purrr_0.3.5     readr_2.1.3    
-##  [9] tidyr_1.2.1     tibble_3.1.8    ggplot2_3.4.0   tidyverse_1.3.2
+##  [1] effects_4.2-2   carData_3.0-5   gtsummary_1.7.2 patchwork_1.1.2
+##  [5] broom_1.0.1     betareg_3.1-4   forcats_1.0.0   stringr_1.4.1  
+##  [9] dplyr_1.1.2     purrr_1.0.2     readr_2.1.3     tidyr_1.2.1    
+## [13] tibble_3.2.1    ggplot2_3.4.0   tidyverse_1.3.2
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] httr_1.4.4          sass_0.4.2          jsonlite_1.8.3     
-##  [4] splines_4.2.1       modelr_0.1.10       bslib_0.4.1        
-##  [7] Formula_1.2-4       assertthat_0.2.1    highr_0.9          
-## [10] stats4_4.2.1        renv_0.15.5         googlesheets4_1.0.1
-## [13] cellranger_1.1.0    yaml_2.3.6          pillar_1.8.1       
-## [16] backports_1.4.1     lattice_0.20-45     glue_1.6.2         
-## [19] digest_0.6.30       rvest_1.0.3         colorspace_2.0-3   
-## [22] sandwich_3.0-2      Matrix_1.4-1        htmltools_0.5.3    
-## [25] pkgconfig_2.0.3     haven_2.5.1         scales_1.2.1       
-## [28] tzdb_0.3.0          timechange_0.1.1    googledrive_2.0.0  
-## [31] mgcv_1.8-40         generics_0.1.3      farver_2.1.1       
-## [34] ellipsis_0.3.2      cachem_1.0.6        withr_2.5.0        
-## [37] nnet_7.3-17         cli_3.4.1           magrittr_2.0.3     
-## [40] crayon_1.5.2        readxl_1.4.1        evaluate_0.18      
-## [43] fs_1.5.2            fansi_1.0.3         nlme_3.1-159       
-## [46] xml2_1.3.3          tools_4.2.1         hms_1.1.2          
-## [49] gargle_1.2.1        lifecycle_1.0.3     munsell_0.5.0      
-## [52] reprex_2.0.2        compiler_4.2.1      jquerylib_0.1.4    
-## [55] rlang_1.0.6         grid_4.2.1          rstudioapi_0.14    
-## [58] labeling_0.4.2      rmarkdown_2.18      gtable_0.3.1       
-## [61] flexmix_2.3-18      DBI_1.1.3           R6_2.5.1           
-## [64] zoo_1.8-11          lubridate_1.9.0     knitr_1.40         
-## [67] fastmap_1.1.0       utf8_1.2.2          modeltools_0.2-23  
-## [70] stringi_1.7.8       vctrs_0.5.0         dbplyr_2.2.1       
-## [73] tidyselect_1.2.0    xfun_0.34           lmtest_0.9-40
+##  [1] nlme_3.1-159         fs_1.6.2             lubridate_1.9.0     
+##  [4] insight_0.19.3       httr_1.4.4           tools_4.2.1         
+##  [7] backports_1.4.1      bslib_0.4.1          utf8_1.2.2          
+## [10] R6_2.5.1             mgcv_1.8-40          DBI_1.1.3           
+## [13] colorspace_2.0-3     nnet_7.3-17          withr_2.5.0         
+## [16] tidyselect_1.2.0     compiler_4.2.1       cli_3.6.1           
+## [19] rvest_1.0.3          gt_0.9.0             xml2_1.3.3          
+## [22] sandwich_3.0-2       labeling_0.4.2       sass_0.4.7          
+## [25] scales_1.2.1         lmtest_0.9-40        digest_0.6.30       
+## [28] minqa_1.2.5          rmarkdown_2.18       pkgconfig_2.0.3     
+## [31] htmltools_0.5.5      lme4_1.1-33          highr_0.9           
+## [34] dbplyr_2.2.1         fastmap_1.1.1        rlang_1.1.1         
+## [37] readxl_1.4.1         rstudioapi_0.14      farver_2.1.1        
+## [40] jquerylib_0.1.4      generics_0.1.3       zoo_1.8-11          
+## [43] jsonlite_1.8.3       googlesheets4_1.0.1  magrittr_2.0.3      
+## [46] modeltools_0.2-23    Formula_1.2-4        Matrix_1.4-1        
+## [49] Rcpp_1.0.10          munsell_0.5.0        fansi_1.0.3         
+## [52] lifecycle_1.0.3      stringi_1.7.8        yaml_2.3.6          
+## [55] MASS_7.3-58.1        flexmix_2.3-18       grid_4.2.1          
+## [58] crayon_1.5.2         lattice_0.20-45      haven_2.5.1         
+## [61] splines_4.2.1        hms_1.1.2            knitr_1.40          
+## [64] pillar_1.9.0         boot_1.3-28          codetools_0.2-18    
+## [67] stats4_4.2.1         reprex_2.0.2         glue_1.6.2          
+## [70] evaluate_0.18        mitools_2.4          renv_0.17.3         
+## [73] broom.helpers_1.13.0 modelr_0.1.10        vctrs_0.6.3         
+## [76] nloptr_2.0.3         tzdb_0.3.0           cellranger_1.1.0    
+## [79] gtable_0.3.1         assertthat_0.2.1     cachem_1.0.6        
+## [82] xfun_0.40            survey_4.2-1         survival_3.4-0      
+## [85] googledrive_2.0.0    gargle_1.2.1         timechange_0.1.1    
+## [88] ellipsis_0.3.2
 ```
 
