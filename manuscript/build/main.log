@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  16 OCT 2023 18:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.2)  17 OCT 2023 09:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1720,17 +1720,17 @@ Overfull \hbox (21.60303pt too wide) in paragraph at lines 40--44
 [6] [7]
 \openout3 = `main.fff'.
 
- (main.fff) (./src/tables/parcellations.tex) [8]) (./src/main/results.tex (./src/tables/table_democog.tex) (./src/tables/table_fracocc.tex) [9] (./src/tables/table_hyp1.tex) (./src/tables/table_hyp2.tex) [10]) (./src/main/discussion.tex [11]) (./src/main/formal.tex [12]) [13]
+ (main.fff) (./src/tables/parcellations.tex) [8]) (./src/main/results.tex (./src/tables/table_democog.tex) (./src/tables/table_fracocc.tex) [9] (./src/tables/table_hyp1.tex) (./src/tables/table_hyp2.tex) [10]) (./src/main/discussion.tex [11]) (./src/main/formal.tex [12]) [13] [14]
 Overfull \hbox (1.49184pt too wide) in paragraph at lines 127--127
 \T1/opensans-TLF/m/n/10 periven-tric-u-lar and deep white mat-ter hy-per-in-ten-si-ties on MRI: A study in older adults^^Q.
  []
 
-[14] [15] [16]
+[15] [16]
 Overfull \hbox (2.88869pt too wide) in paragraph at lines 127--127
 [][]\T1/opensans-TLF/m/n/10 Wardlaw, Joanna M, Maria C Valdés Hernán-dez, and Su-sana Muñoz-Maniega (2015). ^^P  What
  []
 
-AED endfloat: Processing end Figures and Tables [17] (build/main.lof
+[17] AED endfloat: Processing end Figures and Tables [18] (build/main.lof
 Overfull \hbox (4.83266pt too wide) in paragraph at lines 5--5
  [][] [][][]\T1/opensans-TLF/m/n/10 Association be-tween time spent in high-occupancy DMN-related brain states 
  []
@@ -1744,11 +1744,11 @@ Overfull \hbox (4.83266pt too wide) in paragraph at lines 8--8
 \tf@lof=\write9
 \openout9 = `main.lof'.
 
- [18
+ [19
 
 
 ] (build/main.fff
-<./../analysis/derivatives/power-1.png, id=367, 505.89pt x 361.35pt>
+<./../analysis/derivatives/power-1.png, id=377, 505.89pt x 361.35pt>
 File: ./../analysis/derivatives/power-1.png Graphic file (type png)
 <use ./../analysis/derivatives/power-1.png>
 Package pdftex.def Info: ./../analysis/derivatives/power-1.png  used on input line 2.
@@ -1759,45 +1759,45 @@ LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 3.
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 3.
- [19 <./../analysis/derivatives/power-1.png (PNG copy)>]
-<./../analysis/code/R/FLOW.png, id=375, 607.51968pt x 871.00406pt>
+ [20 <./../analysis/derivatives/power-1.png (PNG copy)>]
+<./../analysis/code/R/FLOW.png, id=385, 607.51968pt x 871.00406pt>
 File: ./../analysis/code/R/FLOW.png Graphic file (type png)
 <use ./../analysis/code/R/FLOW.png>
 Package pdftex.def Info: ./../analysis/code/R/FLOW.png  used on input line 9.
 (pdftex.def)             Requested size: 203.2949pt x 291.45923pt.
- [20 <./../analysis/code/R/FLOW.png>]
-<./../analysis/derivatives/Figures/Fig_hyp1.png, id=384, 100.8176pt x 100.8176pt>
+ [21 <./../analysis/code/R/FLOW.png>]
+<./../analysis/derivatives/Figures/Fig_hyp1.png, id=393, 100.8176pt x 100.8176pt>
 File: ./../analysis/derivatives/Figures/Fig_hyp1.png Graphic file (type png)
 <use ./../analysis/derivatives/Figures/Fig_hyp1.png>
 Package pdftex.def Info: ./../analysis/derivatives/Figures/Fig_hyp1.png  used on input line 16.
 (pdftex.def)             Requested size: 203.2949pt x 203.30377pt.
- [21 <./../analysis/derivatives/Figures/Fig_hyp1.png>]
-<./../analysis/derivatives/Figures/Fig_hyp2.png, id=391, 100.8176pt x 100.8176pt>
+ [22 <./../analysis/derivatives/Figures/Fig_hyp1.png>]
+<./../analysis/derivatives/Figures/Fig_hyp2.png, id=400, 100.8176pt x 100.8176pt>
 File: ./../analysis/derivatives/Figures/Fig_hyp2.png Graphic file (type png)
 <use ./../analysis/derivatives/Figures/Fig_hyp2.png>
 Package pdftex.def Info: ./../analysis/derivatives/Figures/Fig_hyp2.png  used on input line 23.
 (pdftex.def)             Requested size: 203.2949pt x 203.30377pt.
- [22 <./../analysis/derivatives/Figures/Fig_hyp2.png>]
-<./../analysis/derivatives/Figures/Fig_mv.png, id=398, 201.6352pt x 201.6352pt>
+ [23 <./../analysis/derivatives/Figures/Fig_hyp2.png>]
+<./../analysis/derivatives/Figures/Fig_mv.png, id=407, 201.6352pt x 201.6352pt>
 File: ./../analysis/derivatives/Figures/Fig_mv.png Graphic file (type png)
 <use ./../analysis/derivatives/Figures/Fig_mv.png>
 Package pdftex.def Info: ./../analysis/derivatives/Figures/Fig_mv.png  used on input line 30.
 (pdftex.def)             Requested size: 406.58981pt x 406.60759pt.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 31.
- [23 <./../analysis/derivatives/Figures/Fig_mv.png>]
-<./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png, id=406, 201.6352pt x 44.8131pt>
+ [24 <./../analysis/derivatives/Figures/Fig_mv.png>]
+<./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png, id=415, 201.6352pt x 44.8131pt>
 File: ./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png Graphic file (type png)
 <use ./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png>
 Package pdftex.def Info: ./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png  used on input line 38.
 (pdftex.def)             Requested size: 406.58981pt x 90.36786pt.
- [24 <./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png>]
-<./../analysis/derivatives/Figures/Fig_FOvsCOG.png, id=415, 212.82661pt x 168.01352pt>
+ [25 <./../analysis/derivatives/Figures/spiderplot_36p~schaefer400x7.png>]
+<./../analysis/derivatives/Figures/Fig_FOvsCOG.png, id=425, 212.82661pt x 168.01352pt>
 File: ./../analysis/derivatives/Figures/Fig_FOvsCOG.png Graphic file (type png)
 <use ./../analysis/derivatives/Figures/Fig_FOvsCOG.png>
 Package pdftex.def Info: ./../analysis/derivatives/Figures/Fig_FOvsCOG.png  used on input line 58.
 (pdftex.def)             Requested size: 406.58981pt x 320.99791pt.
-) [25 <./../analysis/derivatives/Figures/Fig_FOvsCOG.png>] (build/main.lot
+) [26 <./../analysis/derivatives/Figures/Fig_FOvsCOG.png>] (build/main.lot
 Overfull \hbox (6.31866pt too wide) in paragraph at lines 6--6
  [][] [][][]\T1/opensans-TLF/m/n/10 Association be-tween time-spent in high-occupancy DMN-related brain states 
  []
@@ -1811,7 +1811,7 @@ Overfull \hbox (0.23584pt too wide) in paragraph at lines 7--7
 \tf@lot=\write10
 \openout10 = `main.lot'.
 
- [26
+ [27
 
 
 
@@ -1863,7 +1863,7 @@ Overfull \hbox (8.13374pt too wide) in paragraph at lines 19--20
  [] 
  []
 
-[27
+[28
 
 ]
 Underfull \hbox (badness 10000) in alignment at lines 45--45
@@ -1880,56 +1880,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--76
 [][]
  []
 
-[28]
+[29]
 Underfull \vbox (badness 10000) detected at line 111
  []
 
 
-LaTeX Warning: Text page 29 contains only floats.
+LaTeX Warning: Text page 30 contains only floats.
 
 
 Overfull \vbox (10.77426pt too high) has occurred while \output is active []
 
- [29
+ [30
 
 
 ]
 Underfull \vbox (badness 10000) detected at line 171
  []
 
-[30]
+[31]
 Underfull \vbox (badness 10000) detected at line 192
  []
 
-[31]
+[32]
 Underfull \vbox (badness 10000) detected at line 214
  []
 
-) [32] 
+) [33] 
 AED: lastpage setting LastPage
 (build/main.suppinfo) (build/main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D6EA51D5EDAF76196877FC548A17A7BA;4799.
+(rerunfilecheck)             Checksum: A27D8AC1D0541E941CEA29045C5B675F;5069.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47562 strings out of 480954
- 910708 string characters out of 5907138
+ 47565 strings out of 480954
+ 910745 string characters out of 5907138
  1723595 words of memory out of 5000000
- 63805 multiletter control sequences out of 15000+600000
+ 63806 multiletter control sequences out of 15000+600000
  476421 words of font info for 180 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  102i,22n,131p,2702b,2351s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/opensans/a_nvvucy.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/home/eckhard/.TinyTeX/texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc} </home/eckhard/.TinyTeX/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Bold.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Italic.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></home/eckhard/.TinyTeX/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on build/main.pdf (32 pages, 6534531 bytes).
+Output written on build/main.pdf (33 pages, 6535948 bytes).
 PDF statistics:
- 590 PDF objects out of 1000 (max. 8388607)
- 508 compressed objects within 6 object streams
- 129 named destinations out of 1000 (max. 500000)
- 20712 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 599 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 20720 words of extra memory for PDF output out of 20736 (max. 10000000)
 
