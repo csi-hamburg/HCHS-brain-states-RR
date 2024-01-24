@@ -4,7 +4,8 @@
 
 
 [Revised Stage 2 manuscript](./manuscript/build/main.pdf)
-[Stage 2 diff](./manuscript/R2S1_diff.pdf)
+
+[Stage 2 diff](./manuscript/S2R1_diff.pdf)
 
 
 [Previously submitted Stage 2 manuscript](https://github.com/csi-hamburg/HCHS-brain-states-RR/blob/d5a42f66c833cc023323ea9ee32448bb1ea71720/manuscript/build/main.pdf)
