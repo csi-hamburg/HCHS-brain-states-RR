@@ -55,8 +55,8 @@ end
 %%
 Reps = 100;
 MaxIter = 1e3;
-flag = 'spider';
-atlas = 'schaefer100x7';
+flag = 'test';
+atlas = 'schaefer400x7';
 design = '36p';
 
 NodeIndex = dlmread(fullfile(atlasdir, atlas, [atlas, 'NodeIndex.1D']));

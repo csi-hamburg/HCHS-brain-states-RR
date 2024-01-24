@@ -33,6 +33,24 @@ d.dFC %>%
   select(-ID) %>% 
   tbl_summary()
 
+d.dFC %>% 
+  dplyr::filter(design == '36p', atlas == 'schaefer400x7', stringr::str_starts(state, 'DMN')) %>% 
+  droplevels() %>% 
+  pivot_wider(names_from = 'state', values_from = 'frac_occ') %$% 
+  lm(`DMN+` ~ `DMN-`, data = .) %>% summary()
+  cor(.['DMN+'], .['DMN-'])
+  
+d.dFC %>% 
+  dplyr::filter(design == '36p', atlas == 'schaefer400x7', stringr::str_starts(state, 'DMN')) %>% 
+  droplevels() %>% 
+  pivot_wider(names_from = 'state', values_from = 'frac_occ') %>% 
+  ggplot(aes(x = `DMN+`, y= `DMN-`)) +
+  geom_jitter(shape = 21, alpha = .5) +
+  geom_smooth(method = 'lm') +
+  theme_classic()
+
+ggsave(plot = last_plot(), filename =  'DMN+corDMN-.svg', path = './../../derivatives/Figures', device = 'svg', width = 9, height = 9, units = 'cm')
+
 
 d.predFC %>% 
   ungroup() %>% 
@@ -59,7 +77,7 @@ m.FO %>%
   dplyr::filter(design == '36p', atlas == 'schaefer400x7', cSVDmeas == 'WMHsmooth', component == 'mean') %>%  # primary analytical choices
   ungroup() %>% 
   dplyr::select(term, estimate, conf.low, conf.high, p.value) %>% 
-  write.csv(file = './../../derivatives/Tab2a.dat', sep = ',', row.names = FALSE, col.names = TRUE)
+  write.csv(file = './../../derivatives/Tab2a.dat', row.names = FALSE)
 
 
 ## Plot Fig 2a
@@ -88,7 +106,7 @@ plt.Fig2a <-  d.Fig2a %>%
   scale_x_continuous(name = 'WMH volume [ml]', trans = 'log10', breaks = c(.1, 1, 10), limits = c(.01, 50),  labels = scales::number_format(accuracy = .01)) +
   scale_y_continuous(name = 'Frac. occupancy in DMN-related states') +
   theme_classic()
-
+plt.Fig2a
 ggsave(plot = plt.Fig2a, filename =  'Fig_hyp1.svg', path = './../../derivatives/Figures', device = 'svg', width = 9, height = 9, units = 'cm')
 
 
@@ -129,6 +147,7 @@ ggsave(plot = plt.Fig2b, filename =  'Fig_hyp2.svg', path = './../../derivatives
 
 
 plt.Fig2 <- plt.Fig2a + plt.Fig2b + plot_layout(ncol = 2) + plot_annotation(tag_levels = 'A', tag_suffix = ')')
+plt.Fig2
 ggsave(plot = plt.Fig2, filename =  'Fig2.svg', path = './../../derivatives/Figures', device = 'svg', width = 18, height = 9, units = 'cm')
 
 plt.Fig2a + plt.Fig2b + plot_layout(nrow = 2) + plot_annotation(tag_levels = 'A', tag_suffix = ')')
@@ -141,7 +160,7 @@ plt.Fig3 <- (p.forest.beta$plt[[1]] + ggtitle(parse(text = c('FO^high %~% bold(l
   plot_annotation(tag_levels = 'A', tag_suffix = ')') & 
   theme(legend.position = 'bottom', title = element_text(size = 3))
 plt.Fig3
-ggsave(plot = plt.Fig3, filename =  'Fig3.svg', path = './../../derivatives/Figures', device = 'svg', width = 9, height = 18, units = 'cm')
+#ggsave(plot = plt.Fig3, filename =  'Fig3.svg', path = './../../derivatives/Figures', device = 'svg', width = 9, height = 18, units = 'cm')
 
 
 plt.Fig3 & 
@@ -150,4 +169,4 @@ plt.Fig3 &
         , axis.title = element_text(size = 10)
         , title = element_text(size = 5)
         , legend.text = element_text(size = 6))
-ggsave(plot = last_plot(), filename =  'Fig3_poster.svg', path = './../../derivatives/Figures', device = 'svg', width = 18, height = 18, units = 'cm')
+ggsave(plot = last_plot(), filename =  'Fig3.svg', path = './../../derivatives/Figures', device = 'svg', width = 18, height = 18, units = 'cm')

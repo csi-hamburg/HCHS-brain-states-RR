@@ -83,7 +83,7 @@ for j = 1:nstates
         
     end
 end
-dlmwrite(['./../../derivatives/data/spiderdatall_' design '~' atlas, '.dat'], spiderdatall);
+%dlmwrite(['./../../derivatives/data/spiderdatall_' design '~' atlas, '.dat'], spiderdatall);
 
 %% export
 fid = fopen(['./../../derivatives/data/' flag '/dFCmetrics~' design '~' atlas, '~.dat'], 'w');

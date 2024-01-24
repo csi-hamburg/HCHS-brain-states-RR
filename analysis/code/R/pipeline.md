@@ -1,7 +1,7 @@
 ---
 title: "Functional MRI brain state occupancy in the presence of cerebral small vessel disease – Statistical analysis pipeline for a pre-registered replication analysis of the Hamburg City Health Study"
 author: "Eckhard Schlemm"
-date: "16 Oktober, 2023"
+date: "21 Januar, 2024"
 output: 
   html_document:
     keep_md: true
@@ -50,6 +50,7 @@ k=5 discrete brain states were estimated by clustering BOLD-signals in brain act
 source('.Rprofile', chdir = TRUE)
 #source('prepdata.r')
 load('data.Rdata')
+#load('./../../../pilot/data.Rdata')
 ```
 
 
@@ -290,14 +291,13 @@ sessionInfo()
 ## [55] MASS_7.3-58.1        flexmix_2.3-18       grid_4.2.1          
 ## [58] crayon_1.5.2         lattice_0.20-45      haven_2.5.1         
 ## [61] splines_4.2.1        hms_1.1.2            knitr_1.40          
-## [64] pillar_1.9.0         boot_1.3-28          codetools_0.2-18    
-## [67] stats4_4.2.1         reprex_2.0.2         glue_1.6.2          
-## [70] evaluate_0.18        mitools_2.4          renv_0.17.3         
-## [73] broom.helpers_1.13.0 modelr_0.1.10        vctrs_0.6.3         
-## [76] nloptr_2.0.3         tzdb_0.3.0           cellranger_1.1.0    
-## [79] gtable_0.3.1         assertthat_0.2.1     cachem_1.0.6        
-## [82] xfun_0.40            survey_4.2-1         survival_3.4-0      
-## [85] googledrive_2.0.0    gargle_1.2.1         timechange_0.1.1    
-## [88] ellipsis_0.3.2
+## [64] pillar_1.9.0         boot_1.3-28          stats4_4.2.1        
+## [67] reprex_2.0.2         glue_1.6.2           evaluate_0.18       
+## [70] mitools_2.4          renv_0.17.3          broom.helpers_1.13.0
+## [73] modelr_0.1.10        vctrs_0.6.3          nloptr_2.0.3        
+## [76] tzdb_0.3.0           cellranger_1.1.0     gtable_0.3.1        
+## [79] assertthat_0.2.1     cachem_1.0.6         xfun_0.40           
+## [82] survey_4.2-1         survival_3.4-0       googledrive_2.0.0   
+## [85] gargle_1.2.1         timechange_0.1.1     ellipsis_0.3.2
 ```
 

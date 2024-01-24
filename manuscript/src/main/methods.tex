@@ -20,7 +20,7 @@ For $T_1$-weighted anatomical images, a 3D rapid acquisition gradient-echo seque
 $T_2$-weighted fluid attenuated inversion recovery (FLAIR) images were acquired with the following sequence parameters: $\text{TR} = \qty{4700}{\ms}$, $\text{TE} = \qty{392}{\ms}$, \num{192} axial slices, $\text{ST} = \qty{0.9}{\mm}$, $\text{IPR} = \qtyproduct[product-units = bracket-power]{0.75 x 0.75}{\mm}$.
 
 \num{125} resting state functional MRI volumes were acquired ($\text{TR} = \qty{2500}{\ms}$; $\text{TE} = \qty{25}{\ms}$; $\text{flip angle} = \ang[]{90}$; slices = \num{49}; $\text{ST} = \qty{3}{\mm}$; $\text{slice gap} = \qty{0}{\mm}$; $\text{IPR} = \qtyproduct[product-units = bracket-power]{2.66 x 2.66}{\mm}$).
-The subjects were asked to keep their eyes open and to think of nothing.
+The participants were asked to keep their eyes open and to think of nothing.
 
 We verified the presence and voxel dimensions of expected MRI data for each participant and excluded those for whom at least one of $T_1$-weighted, FLAIR, and resting-state MRI was missing. We also excluded participants with neuroradiologically confirmed space-occupying intra-axial lesion.
 To ensure reproducibility, no visual quality assessment of raw images was performed.
@@ -37,10 +37,11 @@ For the primary analysis, we used the \textit{36p} regression strategy and the S
  
 Different atlases and confound regression strategies, as implemented in xcpEngine, were included in an exploratory multiverse analysis.
 
-Co-activation pattern (CAP) analysis was performed by first aggregating parcellated, de-confounded BOLD signals into a $\left(n_{\text{parcels}}\times \sum_i{n_{\text{time points}, i}}\right)$ feature matrix, where $n_{\text{time points}, i}$ denotes the number of retained volumes for subject $i$ after confound regression.
+Co-activation pattern (CAP) analysis was performed by first aggregating parcellated, de-confounded BOLD signals into a $\left(n_{\text{parcels}}\times \sum_i{n_{\text{time points}, i}}\right)$ feature matrix, where $n_{\text{time points}, i}$ denotes the number of retained volumes for participant $i$ after confound regression.
 Clustering was performed using the $k$-means algorithm ($k=5$) with a distance measure given by 1 minus the sample Pearson correlation between points, as implemented in Matlab R2021a.
-We estimated the subject- and state-specific fractional occupancies, which are defined as the proportion of BOLD volumes assigned to each brain state \citep{Vidaurre2018-pb}. 
+We estimated the participant- and state-specific fractional occupancies, which are defined as the proportion of BOLD volumes assigned to each brain state \citep{Vidaurre2018-pb}. 
 The two states with the highest average occupancies were identified as the basis for further analysis.
+
 
 \subsection{Statistical analysis}
 For demographic (age, sex, and years of education) and clinical (TMT-B) variables, the number of missing items is reported.
@@ -67,15 +68,15 @@ Significance testing of the null hypothesis of no association was conducted at t
 Estimation and testing were performed using the glm function included in the 'stats' package from R v4.2.1.
 
 \subsection{Pre-registered analyses}
-The analysis plan was pre-registered on June 27 2023 at \url{https://osf.io/fcqmb}. The sample size calculation was based on an effect size on the odds ratio scale of 0.95, corresponding to an absolute difference in the probability of occupying a DMN-related brain state between the first and third WMH-load quartile of 1.3 percentage points, and between the 5\% and 95\% percentile of 3.1 percentage points. Approximating half the difference in fractional occupancy of DMN-related states between different task demands (rest vs n-back) in healthy subjects, which was estimated to lie between 6 and 7 percentage points \citep{Cornblath2020-fu}, this value represented a plausible choice for the smallest effect size of theoretical and practical interest. It also equals the estimated effect size based on the data presented in \citep{Schlemm2022-he}.
+The analysis plan was pre-registered on June 27 2023 at \url{https://osf.io/fcqmb}. The sample size calculation was based on an effect size on the odds ratio scale of 0.95, corresponding to an absolute difference in the probability of occupying a DMN-related brain state between the first and third WMH-load quartile of 1.3 percentage points, and between the 5\% and 95\% percentile of 3.1 percentage points. Approximating half the difference in fractional occupancy of DMN-related states between different task demands (rest vs n-back) in healthy participants, which was estimated to lie between 6 and 7 percentage points \citep{Cornblath2020-fu}, this value represented a plausible choice for the smallest effect size of theoretical and practical interest. It also equals the estimated effect size based on the data presented in \citep{Schlemm2022-he}.
 
 Simple bootstrapping was used to create \num{10000} hypothetical datasets of size \num{200}, \num{400}, \num{600}, \num{800}, \num{900}, \num{910}, \ldots, \num{1090}, \num{1100}, \num{1200}, \num{1400}, \num{1500}, and \num{1600}.
 Each dataset was then subjected to the estimation procedure described above.
 For each sample size, the proportion of datasets in which the primary null hypothesis of no association between fractional occupancy and WMH load could be rejected at $\alpha=0.05$ was computed and recorded as a power curve in \Cref{fig:power}.
 
 \begin{figure}
-    \includegraphics[width=.5\linewidth]{./../analysis/derivatives/power-1.png}
-    \mycaption{Sample size and power estimation}{A-priori estimated power for different sample sizes was obtained as the proportion of synthetic data sets in which the null hypothesis of no association between WMH volume and time spent in high-occupancy brain states an be rejected at the $\alpha=0.05$ significance level. Proportions are based on a total of \num{10000} synthetic data sets obtained by bootstrapping the data presented in \citep{Schlemm2022-he}. Highlighted in orange are the smallest sample size ensuring a power of at least \qty{80}{\percent} ($n=960$), the sample size of the pilot data ($n=988$, post-hoc power \qty{81.3}{\percent}), and the expected sample sample size for this replication study ($n=1500$, a-priori power \qty{93.9}{\percent}).}
+    \includegraphics[width=.5\linewidth]{./../analysis/derivatives/Figures/Fig1.png}
+    \mycaption{Sample size and power estimation}{A-priori estimated power for different sample sizes was obtained as the proportion of synthetic data sets in which the null hypothesis of no association between WMH volume and time spent in high-occupancy brain states an be rejected at the $\alpha=0.05$ significance level. Proportions are based on a total of \num{10000} synthetic data sets obtained by bootstrapping the data presented in \citep{Schlemm2022-he}. Highlighted in orange are the smallest sample size ensuring a power of at least \qty{80}{\percent} ($n=960$), the sample size of the pilot data ($n=988$, post-hoc power \qty{81.3}{\percent}), the expected sample sample size for this replication study ($n=1500$, a-priori power \qty{93.9}{\percent}), and the achieved sample size ($n=1651$, a-priori power \qty{95.4}{\percent}).}
     \label{fig:power}
 \end{figure}
 
@@ -100,6 +101,17 @@ We further explored this relationship by computing, for each individual brain st
 The results were visualized as spider plots for the Schaefer atlases.
 
 In further exploratory analyses, we describe the associations between brain state dynamics and other measures of cognitive ability such as memory and language.
+
+\subsection{Pilot data and analysis}
+Summary data from the first \num{1000} imaging data points of the HCHS have been published with \citep{Schlemm2022-he}  and formed the basis for the hypotheses tested in this replication study.
+Before pregistration, we had implemented our prespecified analysis pipeline described above in R and Matlab, and applied it to this previous sample.
+Data, code and results from this pilot analysis have been stored with the archived Stage 1 report on GitHub (\url{https://github.com/csi-hamburg/HCHS_brain_states_RR}, v1.5) and preserved on Zenodo.
+
+\subsection{Timeline and access to data}
+At the time of planning of this study, all demographic, clinical and imaging data used in this analysis had been collected by the HCHS and were held in the central trial database.
+Quality checks for non-imaging variables had been performed centrally.
+WMH segmentation based on structural MRI data of the first \num{10000} participants of the HCHS had been performed previously using the BIANCA/LOCATE approach \citep{Rimmele2022-bz}.
+Functional MRI data and clinical measures of executive dysfunction (TMT-B scores) had not previously been analyzed by the pre-registering author (ES).
 
 \subsection{Deviations from preregistration}
 For deconfounding and aggregating BOLD data at brain parcellation level, the software xcpEngine was used in version 1.2.3, not 1.2.1, to ensure that that the correct MNI reference template (MNI152NLin2009cAsym) is used for registration of brain atlases. This decision was made before analysing the data.

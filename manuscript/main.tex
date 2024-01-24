@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Declare document class
-\documentclass[12pt,PCIRR,lineno,doublespacing, endfloat]{lapreprint}
+\documentclass[12pt,PCIRR,lineno,doublespacing,endfloat]{lapreprint}
 
 
 % Import packages
@@ -41,7 +41,7 @@
 \usepackage{rotating}
 \DeclareDelayedFloatFlavor{sidewaystable}{table}
 
-%\usepackage[nomarkers]{endfloat}
+\usepackage[nomarkers]{endfloat}
 % Make declarations
 \DeclareSIUnit\Molar{M}
 \DeclareSIUnit\year{yr}
@@ -101,7 +101,7 @@
 \presentaddress[]{\\Dr.\, Dr.\, Eckhard Schlemm, Klinik und Poliklinik f\"ur Neurologie, Universit\"atsklinikum Hamburg-Eppendorf, Martinistr. 52,\\ D-20251 Hamburg}
 
 % Data availability statement, funding and competing interests.
-\data[]{Preprocessed data will be available e.g. on \href{https://github.com/csi-hamburg/HCHS-brain-states-RR}{https://github.com/csi-hamburg/HCHS-brain-states-RR}.}
+\data[]{Preprocessed data is available on \href{https://github.com/csi-hamburg/HCHS-brain-states-RR}{https://github.com/csi-hamburg/HCHS-brain-states-RR}.}
 \funding[]{{Deutsche Forschungsgemeinschaft (DFG) -- SFB 936, 178316478 -- C2 (Drs Thomalla \& Cheng)}}
 \compint[]{The authors declare no competing interests.}
 
@@ -109,6 +109,7 @@
 % Surname of the lead author(s) for the running footer
 \leadauthor{Ingwersen}
 \shorttitle{Brain states in cSVD - a functional MRI replication substudy of the HCHS}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE START
@@ -125,32 +126,27 @@
 \input{src/main/formal}
 \printbibliography
 
-
 % DON'T EDIT. If "endfloat" option is enabled all floats appear before appendices
-\if@endfloat\clearpage\processdelayedfloats\clearpage\fi 
-
+%\if@endfloat\clearpage\processdelayedfloats\clearpage\fi 
+\clearpage\processdelayedfloats\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUPPLEMENTARY MATERIAL / APPENDICES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Sadly, we can't use floats in the appendix boxes. So they don't "float", but use \captionof{figure}{...} and \captionof{table}{...} to get them properly caption.
-% \begin{appendix}
+% Sadly, we can't use floats in the appendix boxes. So they don't "float", but use \captionof{figure}{...} and \captionof{table}{...} to get them properly caption.
+\begin{appendix}
 
-% \begin{appendixbox}\label{app:ttt}
-%     \input{src/tables/studydesigntemplate.tex}
-% \end{appendixbox}
+\begin{appendixbox}\label{app:ttt}
+    \input{src/appendices.tex}
+\end{appendixbox}
 
-% \begin{appendixbox}
-%     \input{src/tables/parcellations.tex}
-% \end{appendixbox}
-
-% \end{appendix}
+\end{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setcounter{figure}{0}
-\setcounter{postfigure}{0}
+%\setcounter{figure}{0}
+%\setcounter{postfigure}{0}
 
 \end{document}

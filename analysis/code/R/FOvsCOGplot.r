@@ -85,8 +85,9 @@ labs <- lapply(m, function(x)tidy(x, exponentiate = TRUE, conf.int = TRUE)) %>%
                       , formatC(conf.low, digits = 2, format = 'f')
                       , '–'
                       , formatC(conf.high, digits = 2, format = 'f')
-                      , '), P='
-                      , formatC(p.value, digits = 3, format = 'f'))) %>% 
+                      , ')'
+                      #, P=', formatC(p.value, digits = 3, format = 'f')
+                      )) %>% 
   dplyr::select(cogmeas, p.value, lab)
 
 labs.adj <- lapply(m.adj, function(x)tidy(x, exponentiate = TRUE, conf.int = TRUE)) %>% 
@@ -97,8 +98,9 @@ labs.adj <- lapply(m.adj, function(x)tidy(x, exponentiate = TRUE, conf.int = TRU
   mutate(lab.adj = paste0('a-', es, ' = ', formatC(estimate, digits = 2, format = 'f')
                           , ' (', formatC(conf.low, digits = 2, format = 'f')
                           , '–', formatC(conf.high, digits = 2, format = 'f')
-                          , '), aP='
-                          , formatC(p.value, digits = 3, format = 'f'))) %>% 
+                          , ')'
+                          #, aP=', formatC(p.value, digits = 3, format = 'f')
+                          )) %>% 
   dplyr::select(cogmeas, p.value.adj = p.value, lab.adj)
 
 ll <- left_join(labs, labs.adj) %>% 

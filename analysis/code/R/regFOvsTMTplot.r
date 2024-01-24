@@ -4,7 +4,7 @@ p.forest.gamma <- m.TMT %>%
   group_by(cSVDmeas) %>% 
   nest() %>% 
   mutate(plt = map(data, ~forestplot(df = dplyr::filter(., term == 'I(20 * FO.high)')
-                                     , breaks.x = c(.92, .96, 1, 1.06), limits.x = c(0.89, 1.05)
+                                     , breaks.x = c(.92, .96, 1, 1.06), limits.x = c(0.88, 1.05)
                                      , breaks.y = ''
                                      , axis.title.y = ''
                                      , effect.null = 1, effect.pilot = exp(log(0.735124)/20)

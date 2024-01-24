@@ -1,28 +1,30 @@
-\begin{table}[htbt]
-\scriptsize
-\begin{adjustwidth}{-4cm}{}
-\begin{spacing}{0.8}\centering
-\begin{tabulary}{1.3\textwidth}{LLLLLLL}
-\toprule
-\textbf{Question}   & \textbf{Hypothesis}     & \textbf{Sampling plan}     & \textbf{Analysis plan}   & \textbf{Rationale for test sensitivity} & \textbf{Interpretation given different outcomes} & \textbf{Theory that could be shown wrong by the outcome} \\
-\midrule
-Is severity of cerebral small disease, quantified by the volume of supratentorial white matter hyperintensities of presumed vascular origin (WMH), associated with time spent in high-occupancy brain states, defined by resting-state functional MRI? &
-(\textbf{Primary}) Higher WMH volume is associated with lower average occupancy of the two highest-occupancy brain states. &
-Available subjects with clinical and imaging data from the the HCHS \citep{Jagodzinski2020-lx} &
-Standardized preprocessing of structural and functional MRI data • automatic quantification of WMH • co-activation pattern analysis • multivariable generalised regression analyses &
-Tradition &
-\makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between cSVD and fractional occupancy;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis}    &
-Functional brain dynamics are not related to subcortical ischemic vascular disease.    \\
-\hline \\
-Is time spent in high-occupancy brain states associated with cognitive impairment, measured as the time to complete part B of the trail making test (TMT)? & (\textbf{Secondary}) Lower average occupancy of the two highest-occupancy brain states is associated with longer TMT-B time. & as above & as above & as above &  \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between fractional occupancy and cognitive impairment;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis} &   Cognitive function is not related to MRI-derived functional brain dynamics.\\
-\bottomrule
-\end{tabulary}
-\end{spacing}
-\bigskip
-\mycaption{Study Design Template}{Overview of the Scientific Questions addressed in the present study (first column), the two main hypotheses being investigated (second column), and details of the underlying study.}
-\label{tab:SDT}
-\end{adjustwidth}
-\end{table}
+\begin{sidewaystable}[htbt]
+    \footnotesize
+    %\begin{fullwidth}
+        \begin{threeparttable}
+            \begin{spacing}{0.8}\centering
+                \begin{tabulary}{\textwidth}{LLLLLLL}
+                    \toprule
+                    \textbf{Question}   & \textbf{Hypothesis}     & \textbf{Sampling plan}     & \textbf{Analysis plan}   & \textbf{Rationale for deciding the sensitivity of the test} & \textbf{Interpretation given different outcomes} & \textbf{Theory that could be shown wrong by the outcome} \\
+                    \midrule
+                    Is severity of cerebral small disease, quantified by the volume of supratentorial white matter hyperintensities of presumed vascular origin (WMH), associated with time spent in high-occupancy brain states, defined by resting-state functional MRI? &
+                    (\textbf{Primary}) Higher WMH volume is associated with lower average occupancy of the two highest-occupancy brain states. &
+                    Available participants with clinical and imaging data from the the HCHS \citep{Jagodzinski2020-lx} &
+                    Standardized preprocessing of structural and functional MRI data • automatic quantification of WMH • co-activation pattern analysis • multivariable generalised regression analyses &
+                    Tradition &
+                    \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between cSVD and fractional occupancy;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis}    &
+                    Functional brain dynamics are not related to subcortical ischemic vascular disease.    \\
+                    \hline \\
+                    Is time spent in high-occupancy brain states associated with cognitive impairment, measured as the time to complete part B of the trail making test (TMT)? & (\textbf{Secondary}) Lower average occupancy of the two highest-occupancy brain states is associated with longer TMT-B time. & as above & as above & as above &  \makecell[tp{\linewidth}]{$P<0.05$ --> rejection of the null hypothesis of no association between fractional occupancy and cognitive impairment;\\ $P>0.05$ --> insufficient evidence to reject the null hypothesis} &   Cognitive function is not related to MRI-derived functional brain dynamics.\\
+                    \bottomrule
+                \end{tabulary}
+            \end{spacing}
+            \bigskip
+            \mycaption{Study Design Template}{Overview of the Scientific Questions addressed in the present study (first column), the two main hypotheses being investigated (second column), and details of the underlying study.}
+            \label{tab:SDT}
+        \end{threeparttable}
+    %\end{fullwidth}
+\end{sidewaystable}
 \efloatseparator
  
 \begin{table}[bt]
@@ -140,7 +142,6 @@ Years of education &  \\
 \quad Missing n (\%) & 34 (2\%) \\
 \bottomrule
 \end{longtable}
-\addtocounter{table}{-1}
 \mycaption{Descriptive statistics of the study population}{Data are presented as median (interquartile range) or count (percentage) of non-missing items, as appropriate. Number of percentage of missing items are reported separately.}
 \label{tab:democog}
 \end{table}
@@ -169,7 +170,6 @@ Fractional occupancy, \% \\
 \quad S5 & 15.2 (12.0 -- 19.2) \\
 \bottomrule
 \end{longtable}
-\addtocounter{table}{-1}
 \textsuperscript{1}Number of zero values indicated by Z
 \mycaption{Structural and functional imaging characteristics}{Data are presented as median (interquartile range). Supratentorial WMH volumes were obtained by semiautomatic segmentation of FLAIR images using a BINACA/LOCATE-based $k$-nearest neighbours algorithm and stratified by their distance to the lateral ventricles (<\qty{10}{\milli\metre}, periventricular; >\qty{10}{\milli\metre}, deep). Motion parameters were estimated during fMRIprep processing of BOLD scans. Fractional occupancies were calculated by assigning individual BOLD volumes to one of five discrete brain states defined by k-means clustering-based co-activation pattern analysis.Two high-occupancy states are labelled DMN+ and DMN- in view of their network connectivity profiles as shown in \Cref{fig:spider}.}
 \label{tab:fracocc}
@@ -190,9 +190,8 @@ Female sex & 1.12 & <0.0001 & 1.09 -- 1.16 \\
 $\mathbf{1}_{\{\operatorname{WMH=0}\}}$ & 0.93 & 0.477 & 0.75 -- 1.14 \\
 \bottomrule
 \end{longtable}
-\addtocounter{table}{-1}
 \textsuperscript{1} Interquartile ratio $2.37/0.468=5.06$
-\mycaption{Association between time-spent in high-occupancy DMN-related brain states and WMH adjusted for age and sex}{Beta regression table estimated from $n=1651$ independent participants using the model equation $\operatorname{FO}^{\text{high}} \sim \log{\operatorname{WMH}^+} + \mathbf{1}_{\{\operatorname{WMH=0}\}} + \operatorname{age} + \operatorname{sex}$.}
+\mycaption{Association between time-spent in high-occupancy DMN-related brain states and WMH volume adjusted for age and sex}{Beta regression table estimated from $n=1651$ independent participants using the model equation $\operatorname{FO}^{\text{high}} \sim \log{\operatorname{WMH}^+} + \mathbf{1}_{\{\operatorname{WMH=0}\}} + \operatorname{age} + \operatorname{sex}$.}
 \label{tab:hyp1}
 \end{table}
 \efloatseparator
@@ -212,8 +211,7 @@ Education, per year & 0.97 & <0.0001 & 0.97 -- 0.98 \\
 $\mathbf{1}_{\{\operatorname{WMH=0}\}}$ & 0.97 & 0.398 & 0.92 -- 1.03 \\
 \bottomrule
 \end{longtable}
-\addtocounter{table}{-1}
 \textsuperscript{1} Interquartile ratio $2.37/0.468=5.06$
-\mycaption{Association between TMT-B and time spent in high-occupancy DMN-related brain states adjusted for age, sex, WMH volume and years of education}{Gamma regression table estimated from $n=1483$ independent participants using the model equation $\operatorname{TMT-B} \sim \operatorname{FO}^{\text{high}} + \log{\operatorname{WMH}^+} + \mathbf{1}_{\{\operatorname{WMH=0}\}} + \operatorname{age} + \operatorname{sex}$.}
+\mycaption{Association between TMT-B and time spent in high-occupancy DMN-related brain states adjusted for age, sex, WMH volume and years of education}{Gamma regression table estimated from $n=1483$ independent participants using the model equation $\operatorname{TMT-B} \sim \operatorname{FO}^{\text{high}} + \log{\operatorname{WMH}^+} + \mathbf{1}_{\{\operatorname{WMH=0}\}} + \operatorname{age} + \operatorname{sex} + \operatorname{educationyears}$.}
 \label{tab:hyp2}
 \end{table}

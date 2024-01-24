@@ -51,6 +51,7 @@ k=5 discrete brain states were estimated by clustering BOLD-signals in brain act
 source('.Rprofile', chdir = TRUE)
 #source('prepdata.r')
 load('data.Rdata')
+#load('./../../../pilot/data.Rdata')
 ```
 
 

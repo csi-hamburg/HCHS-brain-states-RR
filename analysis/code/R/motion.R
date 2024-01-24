@@ -28,3 +28,30 @@ dd.motion %>% left_join(d.struct) %>%
   geom_point() +
   geom_smooth(method = 'glm', method.args = list(family = gaussian()), color = 'black', fill = 'black') +
   facet_wrap(~motionvar, scales = 'free_y')
+
+## models
+d.Fig2a.motion <- d.dFC %>% 
+  inner_join(d.struct) %>%
+  inner_join(d.clinical) %>% 
+  inner_join(dd.motion) %>% 
+  ungroup() %>% 
+  dplyr::filter(design == '36p', atlas == 'schaefer400x7', cSVDmeas == 'WMHsmooth')  # primary analytical choices
+m.Fig2a.motion <- betareg(FO.high ~ cSVDtrans + yzero + age + sex + dvars + rmsd + framewise_displacement, data = d.Fig2a.motion)
+m.Fig2a.motion %>% 
+  tidy(conf.int = TRUE) %>% 
+  select(c(term, estimate, p.value, conf.low, conf.high)) %>% 
+  mutate(across(c(estimate, starts_with('conf')), exp)) %>% 
+  xtable::xtable(type = "latex", tabular.environment="longtable", digits = 4)
+
+d.Fig2b.motion <- d.dFC %>% 
+  inner_join(d.struct) %>%
+  inner_join(d.clinical) %>%
+  inner_join(dd.motion) %>% 
+  ungroup() %>%  
+  dplyr::filter(design == '36p', atlas == 'schaefer400x7', cSVDmeas == 'WMHsmooth', TMTB > 0)  # primary analytical choices
+
+m.Fig2b.motion <- glm(TMTB ~ cSVDtrans + yzero + FO.high  + age + sex + educationyears + dvars + rmsd + framewise_displacement, data = d.Fig2b.motion, family = Gamma(link = 'log'))
+m.Fig2b.motion %>% 
+  tidy(exponentiate = TRUE, conf.int = TRUE) %>% 
+  select(c(term, estimate, p.value, conf.low, conf.high)) %>% 
+  xtable::xtable(type = "latex", tabular.environment="longtable", digits = 4)
