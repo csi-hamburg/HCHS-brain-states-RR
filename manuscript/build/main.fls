@@ -1854,6 +1854,11 @@ INPUT /home/eckhard/.TinyTeX/texmf-dist/tex/latex/ifsym/uifsym.fd
 INPUT /home/eckhard/.TinyTeX/texmf-dist/tex/latex/ifsym/uifsym.fd
 INPUT /home/eckhard/.TinyTeX/texmf-dist/fonts/tfm/public/ifsym/ifsym10.tfm
 INPUT /home/eckhard/.TinyTeX/texmf-dist/fonts/tfm/ascender/opensans/OpenSans-Regular-T1-TLF.tfm
+INPUT ./badge_PCI_RR.png
+INPUT ./badge_PCI_RR.png
+INPUT badge_PCI_RR.png
+INPUT ./badge_PCI_RR.png
+INPUT ./badge_PCI_RR.png
 INPUT ./src/main/abstract.tex
 INPUT ./src/main/abstract.tex
 INPUT ./src/main/abstract.tex
